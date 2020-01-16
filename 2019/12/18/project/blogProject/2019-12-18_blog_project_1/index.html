@@ -1,0 +1,83 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>블로그 프로젝트 1일차 (Python, Django, Sqlite, Bootstrap) - 세진이의 개발노트</title><!-- Links--><link rel="canonical" href="https://jin9173.github.io/2019/12/18/project/blogProject/2019-12-18_blog_project_1"><!-- preload--><!-- Icons--><!-- open graph--><meta name="description" content="django-blog Repo     Django 설치      1  2      $ (django-blog-env) ➜ django-blog&gt; pip install django&#x3D;&#x3D;2.2.8  $ (django-b">
+<meta property="og:type" content="article">
+<meta property="og:title" content="블로그 프로젝트 1일차 (Python, Django, Sqlite, Bootstrap)">
+<meta property="og:url" content="https://jin9173.github.io/2019/12/18/project/blogProject/2019-12-18_blog_project_1/">
+<meta property="og:site_name" content="세진이의 개발노트">
+<meta property="og:description" content="django-blog Repo     Django 설치      1  2      $ (django-blog-env) ➜ django-blog&gt; pip install django&#x3D;&#x3D;2.2.8  $ (django-b">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/57488252/71049105-cdc71f00-2184-11ea-97c4-adb88330c4e0.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/57488252/71050354-54c9c680-2188-11ea-82e0-5081445b46c2.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/57488252/71050377-61e6b580-2188-11ea-9c9e-591a0d0a05f1.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/57488252/71050628-09fc7e80-2189-11ea-93cc-85dfb3ca0cf0.png">
+<meta property="article:published_time" content="2019-12-18T19:29:50.000Z">
+<meta property="article:modified_time" content="2020-01-16T09:03:14.798Z">
+<meta property="article:author" content="Sejin Kim">
+<meta property="article:tag" content="Python Project">
+<meta property="article:tag" content="Blog Project">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/57488252/71049105-cdc71f00-2184-11ea-97c4-adb88330c4e0.png"><!-- verify website ownership--><!-- styles--><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/dracula.css"><!-- JSON LD for SEO--><script type="application/ld+json">{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "블로그 프로젝트 1일차 (Python, Django, Sqlite, Bootstrap)",
+  "alternativeHeadline": null,
+  "image": {
+    "@type": "imageObject",
+    "url": null,
+    "width": null,
+    "height": null
+  },
+  "genre": null,
+  "keywords": "Python Project,Blog Project",
+  "editor": {
+    "@type": "Person",
+    "name": "Sejin Kim"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Sejin Kim"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Sejin Kim"
+  },
+  "url": "https://jin9173.github.io/2019/12/18/project/blogProject/2019-12-18_blog_project_1/",
+  "dateCreated": "2019-12-18",
+  "datePublished": "2019-12-18",
+  "articleBody": "django-blog Repo     Django 설치      1  2      $ (django-blog-env) ➜ django-blog&gt; pip install django==2.2.8  $ (django-b"
+}</script><!--scripts--><meta name="generator" content="Hexo 4.2.0"></head><body class="post"><header class="header hero"><div class="hero-wrapper"><div class="gnb"><a href="/">세진이의 개발노트</a><button class="nav-toggle" type="button" aria-haspopup="true" aria-controls="navigation"><span></span><span></span><span></span>menu</button></div><h1 class="header__title">블로그 프로젝트 1일차 (Python, Django, Sqlite, Bootstrap)</h1></div></header><div class="contents--container" role="main"><article class="article"><div class="article__meta"><time class="article__meta__time" datetime="2019-12-18T19:29:50.000Z"><span aria-label="posted"><span class="fas fa-calendar-day" aria-hidden="true"></span></span>2019-12-18 11:29:50</time><div class="article__meta__category"><span aria-label="category"><span class="fas fa-archive" aria-hidden="true"></span></span><a class="article__meta__category__item" href="/categories/Project/">Project</a></div></div><div class="article__content"><ul>
+<li><a href="https://github.com/jin9173/django-blog" target="_blank" rel="noopener">django-blog Repo</a></li>
+</ul>
+<h4 id="Django-설치"><a href="#Django-설치" class="headerlink" title="Django 설치"></a>Django 설치</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ (django-blog-env) ➜ django-blog&gt; pip install django==2.2.8</span><br><span class="line">$ (django-blog-env) ➜ django-blog&gt; pip list</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Django admin 설치</span></span><br><span class="line">$ (django-blog-env) ➜ django-blog&gt; django-admin startproject config .</span><br></pre></td></tr></table></figure>
+
+<h4 id="Python-Interpreter-설정"><a href="#Python-Interpreter-설정" class="headerlink" title="Python Interpreter 설정"></a>Python Interpreter 설정</h4><p>: 만든 가상환경을 Interpreter로 설정 </p>
+<p>(<a href="https://jin9173.github.io/2019/12/18/etc/pyenv,virtualenv/">파이썬 가상환경 설치 가이드</a>)</p>
+<p><img src="https://user-images.githubusercontent.com/57488252/71049105-cdc71f00-2184-11ea-97c4-adb88330c4e0.png" alt=""></p>
+<h4 id="gitignore파일을-생성하여-해당-소스-붙여넣기"><a href="#gitignore파일을-생성하여-해당-소스-붙여넣기" class="headerlink" title=".gitignore파일을 생성하여 해당 소스 붙여넣기"></a>.gitignore파일을 생성하여 해당 소스 붙여넣기</h4><ol>
+<li><p><a href="http://gitignore.io/" target="_blank" rel="noopener">gitignore 사이트</a> 방문</p>
+</li>
+<li><p>gitignore할 파일 검색</p>
+<p><img src="https://user-images.githubusercontent.com/57488252/71050354-54c9c680-2188-11ea-82e0-5081445b46c2.png" alt=""></p>
+</li>
+<li><p>생성 후 .gitignore파일에 복사하여 붙여넣기</p>
+<p><img src="https://user-images.githubusercontent.com/57488252/71050377-61e6b580-2188-11ea-9c9e-591a0d0a05f1.png" alt=""></p>
+<p><img src="https://user-images.githubusercontent.com/57488252/71050628-09fc7e80-2189-11ea-93cc-85dfb3ca0cf0.png" alt=""></p>
+</li>
+</ol>
+</div><div class="article__tags"><div class="article__tags__title">tags:</div><a class="article__tag__item" href="/tags/Python-Project/"><span class="fas fa-tag" aria-hidden="true"></span>Python Project</a><a class="article__tag__item" href="/tags/Blog-Project/"><span class="fas fa-tag" aria-hidden="true"></span>Blog Project</a></div></article><div class="comment__container" role="region" aria-label="comments"></div></div><footer class="footer"><p class="credit">Powered by  <a href="https://hexo.io/" rel="external noreferrer" target="_blank">Hexo</a>. Theme by  <a href="https://github.com/mulder21c" rel="external noreferrer" target="_blank">mulder21c</a></p></footer><div class="nav" aria-hidden="true"><nav class="nav--container" id="navigation" aria-labelledby="nav__heading"><h2 class="nav__heading" id="nav__heading">Navigation</h2><hr class="nav__seperator"><ul class="menu-list">
+    <li class="menu-item" >
+      <a href="/" >
+        home
+      </a>
+    </li>
+    <li class="menu-item" >
+      <a href="/archives" >
+        archives
+      </a>
+    </li></ul><hr class="nav__seperator"><h3 class="nav__heading--sub">Categories</h3><ul class="category-list"><li class="category-list-item"><a class="category-list-link current" href="/categories/Project/">Project</a></li></ul></nav></div><script src="/js/webfontloader.js"></script><script>WebFont.load({
+  custom: {
+    families: ["Noto Sans KR", "Font Awesome"],
+    urls: ["/fonts/notosanskr/NotoSansKR.css", "/fonts/fontawesome/fontawesome.css"]
+  }
+});</script><script src="/js/script.js"></script></body></html>
