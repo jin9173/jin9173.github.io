@@ -1,0 +1,85 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Python 기초(모듈) - 세진이의 개발노트</title><!-- Links--><link rel="canonical" href="https://jin9173.github.io/2020/01/24/study/python/2020-01-24_py_module"><!-- preload--><!-- Icons--><!-- open graph--><meta name="description" content="모듈 (Module) 변수, 함수, 클래스 등을 모아 놓은 파일. 모듈에 정보를 정의해두면 여러 프로그램에서 쉽게 가져다 쓸 수 있다.      1  2  3  4  5  6  7  8">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python 기초(모듈)">
+<meta property="og:url" content="https://jin9173.github.io/2020/01/24/study/python/2020-01-24_py_module/">
+<meta property="og:site_name" content="세진이의 개발노트">
+<meta property="og:description" content="모듈 (Module) 변수, 함수, 클래스 등을 모아 놓은 파일. 모듈에 정보를 정의해두면 여러 프로그램에서 쉽게 가져다 쓸 수 있다.      1  2  3  4  5  6  7  8">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-01-23T15:29:50.000Z">
+<meta property="article:modified_time" content="2020-01-23T16:17:49.518Z">
+<meta property="article:author" content="Sejin Kim">
+<meta property="article:tag" content="Module">
+<meta property="article:tag" content="Jupyter notebook">
+<meta property="article:tag" content="random module">
+<meta property="article:tag" content="randint()">
+<meta property="article:tag" content="uniform()">
+<meta name="twitter:card" content="summary"><!-- verify website ownership--><!-- styles--><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/dracula.css"><!-- JSON LD for SEO--><script type="application/ld+json">{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Python 기초(모듈)",
+  "alternativeHeadline": null,
+  "image": {
+    "@type": "imageObject",
+    "url": null,
+    "width": null,
+    "height": null
+  },
+  "genre": null,
+  "keywords": "Module,Jupyter notebook,random module,randint(),uniform()",
+  "editor": {
+    "@type": "Person",
+    "name": "Sejin Kim"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Sejin Kim"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Sejin Kim"
+  },
+  "url": "https://jin9173.github.io/2020/01/24/study/python/2020-01-24_py_module/",
+  "dateCreated": "2020-01-24",
+  "datePublished": "2020-01-24",
+  "articleBody": "모듈 (Module) 변수, 함수, 클래스 등을 모아 놓은 파일. 모듈에 정보를 정의해두면 여러 프로그램에서 쉽게 가져다 쓸 수 있다.      1  2  3  4  5  6  7  8"
+}</script><!--scripts--><meta name="generator" content="Hexo 4.2.0"></head><body class="post"><header class="header hero"><div class="hero-wrapper"><div class="gnb"><a href="/">세진이의 개발노트</a><button class="nav-toggle" type="button" aria-haspopup="true" aria-controls="navigation"><span></span><span></span><span></span>menu</button></div><h1 class="header__title">Python 기초(모듈)</h1></div></header><div class="contents--container" role="main"><article class="article"><div class="article__meta"><time class="article__meta__time" datetime="2020-01-23T15:29:50.000Z"><span aria-label="posted"><span class="fas fa-calendar-day" aria-hidden="true"></span></span>2020-01-24 00:29:50</time><div class="article__meta__category"><span aria-label="category"><span class="fas fa-archive" aria-hidden="true"></span></span><a class="article__meta__category__item" href="/categories/%EA%B3%B5%EB%B6%80/">공부</a><a class="article__meta__category__item" href="/categories/%EA%B3%B5%EB%B6%80/Python/">Python</a></div></div><div class="article__content"><h2 id="모듈-Module"><a href="#모듈-Module" class="headerlink" title="모듈 (Module)"></a>모듈 (Module)</h2><p>변수, 함수, 클래스 등을 모아 놓은 파일. 모듈에 정보를 정의해두면 여러 프로그램에서 쉽게 가져다 쓸 수 있다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># calculator.py 모듈</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 합</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sum</span><span class="params">(x, y)</span>:</span></span><br><span class="line">  <span class="keyword">return</span> x + y</span><br><span class="line"></span><br><span class="line"><span class="comment"># 차이</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">difference</span><span class="params">(x, y)</span>:</span></span><br><span class="line">  <span class="keyword">return</span> x - y</span><br><span class="line"></span><br><span class="line"><span class="comment"># 곱</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">product</span><span class="params">(x, y)</span>:</span></span><br><span class="line">  <span class="keyword">return</span> x * y</span><br><span class="line"></span><br><span class="line"><span class="comment"># 제곱</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">square</span><span class="params">(x)</span>:</span></span><br><span class="line">  <span class="keyword">return</span> x * x</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># test.py</span></span><br><span class="line"><span class="comment"># from calculator import *</span></span><br><span class="line"><span class="keyword">from</span> calculator <span class="keyword">import</span> sum, difference, product, square</span><br><span class="line"></span><br><span class="line">print(sum(<span class="number">3</span>, <span class="number">5</span>))</span><br><span class="line">print(difference(<span class="number">3</span>, <span class="number">5</span>))</span><br><span class="line">print(product(<span class="number">3</span>, <span class="number">5</span>))</span><br><span class="line">print(square(<span class="number">3</span>))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">8</span><br><span class="line">-2</span><br><span class="line">15</span><br><span class="line">9</span><br></pre></td></tr></table></figure>
+
+<h4 id="Jupyter-notebook에서-모듈링하기"><a href="#Jupyter-notebook에서-모듈링하기" class="headerlink" title="Jupyter notebook에서 모듈링하기"></a><span style="color: red">Jupyter notebook에서 모듈링하기</span></h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 모듈 설치</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> pip install import_ipynb</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># calculator_ipynb.ipynb</span></span><br><span class="line"><span class="comment"># 합</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sum</span><span class="params">(x, y)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x + y</span><br><span class="line"></span><br><span class="line"><span class="comment"># 차이</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">difference</span><span class="params">(x, y)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x - y</span><br><span class="line">  </span><br><span class="line"><span class="comment"># 곱</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">product</span><span class="params">(x, y)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x * y</span><br><span class="line"></span><br><span class="line"><span class="comment"># 제곱</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">square</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x * x</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># test.ipynb</span></span><br><span class="line"><span class="keyword">import</span> import_ipynb</span><br><span class="line"><span class="keyword">from</span> calculator_ipynb <span class="keyword">import</span> sum</span><br><span class="line"></span><br><span class="line">print(sum(<span class="number">3</span>, <span class="number">5</span>))</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="random-모듈"><a href="#random-모듈" class="headerlink" title="random 모듈"></a><code>random</code> 모듈</h2><h3 id="randint-함수"><a href="#randint-함수" class="headerlink" title="randint() 함수"></a><code>randint()</code> 함수</h3><p>: 두 정수 사이의 어떤 랜덤한 <span style="color: red">정수</span>(난수)를 리턴시켜주는 함수</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br><span class="line"></span><br><span class="line">randint(<span class="number">1</span>, <span class="number">20</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># jupyter notebook</span></span><br><span class="line"><span class="keyword">import</span> import_ipynb</span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br><span class="line"></span><br><span class="line">randint(<span class="number">1</span>, <span class="number">20</span>)</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h3 id="uniform-함수"><a href="#uniform-함수" class="headerlink" title="uniform() 함수"></a><code>uniform()</code> 함수</h3><p>: 두 수 사이의 랜덤한 <span style="color: red">소수</span>(난수)를 리턴시켜주는 함수</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> uniform</span><br><span class="line"></span><br><span class="line">x = uniform(<span class="number">0</span>, <span class="number">1</span>)</span><br><span class="line">print(x)</span><br></pre></td></tr></table></figure>
+
+</div><div class="article__tags"><div class="article__tags__title">tags:</div><a class="article__tag__item" href="/tags/Module/"><span class="fas fa-tag" aria-hidden="true"></span>Module</a><a class="article__tag__item" href="/tags/Jupyter-notebook/"><span class="fas fa-tag" aria-hidden="true"></span>Jupyter notebook</a><a class="article__tag__item" href="/tags/random-module/"><span class="fas fa-tag" aria-hidden="true"></span>random module</a><a class="article__tag__item" href="/tags/randint/"><span class="fas fa-tag" aria-hidden="true"></span>randint()</a><a class="article__tag__item" href="/tags/uniform/"><span class="fas fa-tag" aria-hidden="true"></span>uniform()</a></div></article><div class="comment__container" role="region" aria-label="comments"></div></div><footer class="footer"><p class="credit">Powered by  <a href="https://hexo.io/" rel="external noreferrer" target="_blank">Hexo</a>. Theme by  <a href="https://github.com/mulder21c" rel="external noreferrer" target="_blank">Sejin Kim</a></p></footer><div class="nav" aria-hidden="true"><nav class="nav--container" id="navigation" aria-labelledby="nav__heading"><h2 class="nav__heading" id="nav__heading">Navigation</h2><hr class="nav__seperator"><ul class="menu-list">
+    <li class="menu-item" >
+      <a href="/" >
+        home
+      </a>
+    </li>
+    <li class="menu-item" >
+      <a href="/archives" >
+        archives
+      </a>
+    </li></ul><hr class="nav__seperator"><h3 class="nav__heading--sub">Categories</h3><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Setting/">Setting</a></li><li class="category-list-item"><a class="category-list-link current" href="/categories/%EA%B3%B5%EB%B6%80/">공부</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link current" href="/categories/%EA%B3%B5%EB%B6%80/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EA%B3%B5%EB%B6%80/Server/">Server</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EA%B3%B5%EB%B6%80/%EB%94%94%EC%9E%90%EC%9D%B8-%ED%8C%A8%ED%84%B4/">디자인 패턴</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">알고리즘</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/Python/">Python</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/">프로젝트</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EC%9E%A5%EA%B3%A0-%EB%B6%81%EB%A7%88%ED%81%AC-%EC%95%B1/">장고 북마크 앱</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EC%9E%A5%EA%B3%A0-%EB%B8%94%EB%A1%9C%EA%B7%B8/">장고 블로그</a></li></ul></li></ul></nav></div><script src="/js/webfontloader.js"></script><script>WebFont.load({
+  custom: {
+    families: ["Noto Sans KR", "Font Awesome"],
+    urls: ["/fonts/notosanskr/NotoSansKR.css", "/fonts/fontawesome/fontawesome.css"]
+  }
+});</script><script src="/js/script.js"></script></body></html>
