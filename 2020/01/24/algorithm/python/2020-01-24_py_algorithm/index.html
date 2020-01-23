@@ -1,0 +1,69 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Python 문제풀이 4일차 - 세진이의 개발노트</title><!-- Links--><link rel="canonical" href="https://jin9173.github.io/2020/01/24/algorithm/python/2020-01-24_py_algorithm"><!-- preload--><!-- Icons--><!-- open graph--><meta name="description" content="1. 숫자 맞추기 게임  1과 20 사이의 숫자를 맞추는 게임을 만드려고 합니다. 앞서 배운 randint 함수와, input 함수의 개념을 활용하여 직접 프로그램을 만들어보세요.  진행 방식   프로그램을 실행하면 &quot;기회가 *번 남았습니다. 1-20 사이의 숫자를 맞춰보세요: &quot;가 출력됩니다. 총 4번의 기회가 주어지며, 사용자가 한 번">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python 문제풀이 4일차">
+<meta property="og:url" content="https://jin9173.github.io/2020/01/24/algorithm/python/2020-01-24_py_algorithm/">
+<meta property="og:site_name" content="세진이의 개발노트">
+<meta property="og:description" content="1. 숫자 맞추기 게임  1과 20 사이의 숫자를 맞추는 게임을 만드려고 합니다. 앞서 배운 randint 함수와, input 함수의 개념을 활용하여 직접 프로그램을 만들어보세요.  진행 방식   프로그램을 실행하면 &quot;기회가 *번 남았습니다. 1-20 사이의 숫자를 맞춰보세요: &quot;가 출력됩니다. 총 4번의 기회가 주어지며, 사용자가 한 번">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-01-23T16:29:50.000Z">
+<meta property="article:modified_time" content="2020-01-23T16:44:21.470Z">
+<meta property="article:author" content="Sejin Kim">
+<meta property="article:tag" content="Codeit">
+<meta name="twitter:card" content="summary"><!-- verify website ownership--><!-- styles--><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/dracula.css"><!-- JSON LD for SEO--><script type="application/ld+json">{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Python 문제풀이 4일차",
+  "alternativeHeadline": null,
+  "image": {
+    "@type": "imageObject",
+    "url": null,
+    "width": null,
+    "height": null
+  },
+  "genre": null,
+  "keywords": "Codeit",
+  "editor": {
+    "@type": "Person",
+    "name": "Sejin Kim"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Sejin Kim"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Sejin Kim"
+  },
+  "url": "https://jin9173.github.io/2020/01/24/algorithm/python/2020-01-24_py_algorithm/",
+  "dateCreated": "2020-01-24",
+  "datePublished": "2020-01-24",
+  "articleBody": "1. 숫자 맞추기 게임  1과 20 사이의 숫자를 맞추는 게임을 만드려고 합니다. 앞서 배운 randint 함수와, input 함수의 개념을 활용하여 직접 프로그램을 만들어보세요.  진행 방식   프로그램을 실행하면 &quot;기회가 *번 남았습니다. 1-20 사이의 숫자를 맞춰보세요: &quot;가 출력됩니다. 총 4번의 기회가 주어지며, 사용자가 한 번 추측할 때마다 남은 기회 횟수가 줄어듭니다. 정답을 맞추면, &quot;축하합니다. *번만에 숫자를 맞추셨습니다.&quot;"
+}</script><!--scripts--><meta name="generator" content="Hexo 4.2.0"></head><body class="post"><header class="header hero"><div class="hero-wrapper"><div class="gnb"><a href="/">세진이의 개발노트</a><button class="nav-toggle" type="button" aria-haspopup="true" aria-controls="navigation"><span></span><span></span><span></span>menu</button></div><h1 class="header__title">Python 문제풀이 4일차</h1></div></header><div class="contents--container" role="main"><article class="article"><div class="article__meta"><time class="article__meta__time" datetime="2020-01-23T16:29:50.000Z"><span aria-label="posted"><span class="fas fa-calendar-day" aria-hidden="true"></span></span>2020-01-24 01:29:50</time><div class="article__meta__category"><span aria-label="category"><span class="fas fa-archive" aria-hidden="true"></span></span><a class="article__meta__category__item" href="/categories/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">알고리즘</a><a class="article__meta__category__item" href="/categories/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/Python/">Python</a></div></div><div class="article__content"><h4 id="1-숫자-맞추기-게임"><a href="#1-숫자-맞추기-게임" class="headerlink" title="1. 숫자 맞추기 게임"></a>1. 숫자 맞추기 게임</h4><p><code>1</code>과 <code>20</code> 사이의 숫자를 맞추는 게임을 만드려고 합니다.</p>
+<p>앞서 배운 <code>randint</code> 함수와, <code>input</code> 함수의 개념을 활용하여 직접 프로그램을 만들어보세요.</p>
+<p><strong>진행 방식</strong></p>
+<ol>
+<li>프로그램을 실행하면 <code>&quot;기회가 *번 남았습니다. 1-20 사이의 숫자를 맞춰보세요: &quot;</code>가 출력됩니다. 총 <code>4</code>번의 기회가 주어지며, 사용자가 한 번 추측할 때마다 남은 기회 횟수가 줄어듭니다.</li>
+<li>정답을 맞추면, <code>&quot;축하합니다. *번만에 숫자를 맞추셨습니다.&quot;</code>가 출력되고 프로그램은 종료됩니다.</li>
+<li>사용자가 입력한 수가 정답보다 작을 경우 <code>&quot;Up&quot;</code>이 출력되고, 입력한 수가 정답보다 클 경우 <code>&quot;Down&quot;</code>이 출력됩니다.</li>
+<li>정답이 틀렸으면 <code>(1)</code>번부터 다시 진행합니다. 만약 <code>4</code>번의 기회를 모두 사용했는데도 답을 맞추지 못했으면, <code>&quot;아쉽습니다. 정답은 *였습니다.&quot;</code>가 출력되고 프로그램은 종료됩니다.</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br><span class="line"></span><br><span class="line">ANSWER = randint(<span class="number">1</span>, <span class="number">20</span>)</span><br><span class="line">tries = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="number">4</span> - tries &gt; <span class="number">0</span>:</span><br><span class="line">    guess = int(input(<span class="string">"기회가 %d번 남았습니다. 1-20 사이의 숫자를 맞춰보세요: "</span> % (<span class="number">4</span> - tries)))</span><br><span class="line">    <span class="keyword">if</span> ANSWER &gt; guess:</span><br><span class="line">        print(<span class="string">"UP"</span>)</span><br><span class="line">    <span class="keyword">elif</span> ANSWER &lt; guess:</span><br><span class="line">        print(<span class="string">"DOWN"</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">"축하합니다. %d번만에 숫자를 맞추셨습니다."</span> % (tries))</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    tries += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="number">4</span> - tries == <span class="number">0</span>:</span><br><span class="line">    print(<span class="string">"아쉽습니다. 정답은 %d였습니다."</span> % (ANSWER))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">기회가 4번 남았습니다. 1-20 사이의 숫자를 맞춰보세요: 3</span><br><span class="line">UP</span><br><span class="line">기회가 3번 남았습니다. 1-20 사이의 숫자를 맞춰보세요: 6</span><br><span class="line">UP</span><br><span class="line">기회가 2번 남았습니다. 1-20 사이의 숫자를 맞춰보세요: 10</span><br><span class="line">UP</span><br><span class="line">기회가 1번 남았습니다. 1-20 사이의 숫자를 맞춰보세요: 15</span><br><span class="line">UP</span><br><span class="line">아쉽습니다. 정답은 18였습니다.</span><br></pre></td></tr></table></figure>
+
+</div><div class="article__tags"><div class="article__tags__title">tags:</div><a class="article__tag__item" href="/tags/Codeit/"><span class="fas fa-tag" aria-hidden="true"></span>Codeit</a></div></article><div class="comment__container" role="region" aria-label="comments"></div></div><footer class="footer"><p class="credit">Powered by  <a href="https://hexo.io/" rel="external noreferrer" target="_blank">Hexo</a>. Theme by  <a href="https://github.com/mulder21c" rel="external noreferrer" target="_blank">Sejin Kim</a></p></footer><div class="nav" aria-hidden="true"><nav class="nav--container" id="navigation" aria-labelledby="nav__heading"><h2 class="nav__heading" id="nav__heading">Navigation</h2><hr class="nav__seperator"><ul class="menu-list">
+    <li class="menu-item" >
+      <a href="/" >
+        home
+      </a>
+    </li>
+    <li class="menu-item" >
+      <a href="/archives" >
+        archives
+      </a>
+    </li></ul><hr class="nav__seperator"><h3 class="nav__heading--sub">Categories</h3><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Setting/">Setting</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EA%B3%B5%EB%B6%80/">공부</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%EA%B3%B5%EB%B6%80/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EA%B3%B5%EB%B6%80/Server/">Server</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EA%B3%B5%EB%B6%80/%EB%94%94%EC%9E%90%EC%9D%B8-%ED%8C%A8%ED%84%B4/">디자인 패턴</a></li></ul></li><li class="category-list-item"><a class="category-list-link current" href="/categories/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">알고리즘</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link current" href="/categories/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/Python/">Python</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/">프로젝트</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EC%9E%A5%EA%B3%A0-%EB%B6%81%EB%A7%88%ED%81%AC-%EC%95%B1/">장고 북마크 앱</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EC%9E%A5%EA%B3%A0-%EB%B8%94%EB%A1%9C%EA%B7%B8/">장고 블로그</a></li></ul></li></ul></nav></div><script src="/js/webfontloader.js"></script><script>WebFont.load({
+  custom: {
+    families: ["Noto Sans KR", "Font Awesome"],
+    urls: ["/fonts/notosanskr/NotoSansKR.css", "/fonts/fontawesome/fontawesome.css"]
+  }
+});</script><script src="/js/script.js"></script></body></html>
