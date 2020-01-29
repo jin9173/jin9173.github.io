@@ -1,0 +1,162 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>장고 블로그 프로젝트 2일차 (함수 기반) - 세진이의 개발노트</title><!-- Links--><link rel="canonical" href="https://jin9173.github.io/2019/12/19/project/django-blogProject/2019-12-19_blog_app_2"><!-- preload--><!-- Icons--><!-- open graph--><meta name="description" content="django-blog Repo     1. blog app 생성   django 파일구조">
+<meta property="og:type" content="article">
+<meta property="og:title" content="장고 블로그 프로젝트 2일차 (함수 기반)">
+<meta property="og:url" content="https://jin9173.github.io/2019/12/19/project/django-blogProject/2019-12-19_blog_app_2/">
+<meta property="og:site_name" content="세진이의 개발노트">
+<meta property="og:description" content="django-blog Repo     1. blog app 생성   django 파일구조">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/57488252/71133948-ca449e00-223f-11ea-8b32-3f8f5a8cc8d2.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/57488252/71134377-64591600-2241-11ea-8789-f8aee28926eb.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/57488252/71136849-7e96f200-2249-11ea-8433-9969ff01299a.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/57488252/71141492-a42af800-2257-11ea-8d58-47283b26fca8.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/57488252/71141423-6f1ea580-2257-11ea-9340-af0911ce538b.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/57488252/71142983-51077400-225c-11ea-9db6-d39ce0d47ef5.png">
+<meta property="article:published_time" content="2019-12-19T00:29:50.000Z">
+<meta property="article:modified_time" content="2020-01-29T15:30:17.823Z">
+<meta property="article:author" content="Sejin Kim">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Django Framework">
+<meta property="article:tag" content="Sqlite">
+<meta property="article:tag" content="Bootstrap">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/57488252/71133948-ca449e00-223f-11ea-8b32-3f8f5a8cc8d2.png"><!-- verify website ownership--><!-- styles--><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/dracula.css"><!-- JSON LD for SEO--><script type="application/ld+json">{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "장고 블로그 프로젝트 2일차 (함수 기반)",
+  "alternativeHeadline": null,
+  "image": {
+    "@type": "imageObject",
+    "url": null,
+    "width": null,
+    "height": null
+  },
+  "genre": null,
+  "keywords": "Python,Django Framework,Sqlite,Bootstrap",
+  "editor": {
+    "@type": "Person",
+    "name": "Sejin Kim"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Sejin Kim"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Sejin Kim"
+  },
+  "url": "https://jin9173.github.io/2019/12/19/project/django-blogProject/2019-12-19_blog_app_2/",
+  "dateCreated": "2019-12-19",
+  "datePublished": "2019-12-19",
+  "articleBody": "django-blog Repo     1. blog app 생성   django 파일구조"
+}</script><!--scripts--><meta name="generator" content="Hexo 4.2.0"></head><body class="post"><header class="header hero"><div class="hero-wrapper"><div class="gnb"><a href="/">세진이의 개발노트</a><button class="nav-toggle" type="button" aria-haspopup="true" aria-controls="navigation"><span></span><span></span><span></span>menu</button></div><h1 class="header__title">장고 블로그 프로젝트 2일차 (함수 기반)</h1></div></header><div class="contents--container" role="main"><article class="article"><div class="article__meta"><time class="article__meta__time" datetime="2019-12-19T00:29:50.000Z"><span aria-label="posted"><span class="fas fa-calendar-day" aria-hidden="true"></span></span>2019-12-19 09:29:50</time><div class="article__meta__category"><span aria-label="category"><span class="fas fa-archive" aria-hidden="true"></span></span><a class="article__meta__category__item" href="/categories/%EC%9E%A5%EA%B3%A0-%EB%B8%94%EB%A1%9C%EA%B7%B8/">장고 블로그</a></div></div><div class="article__content"><ul>
+<li><a href="https://github.com/jin9173/django-blog" target="_blank" rel="noopener">django-blog Repo</a></li>
+</ul>
+<h2 id="1-blog-app-생성"><a href="#1-blog-app-생성" class="headerlink" title="1. blog app 생성"></a>1. blog app 생성</h2><h4 id="django-파일구조"><a href="#django-파일구조" class="headerlink" title="django 파일구조"></a>django 파일구조</h4><img src="https://user-images.githubusercontent.com/57488252/71133948-ca449e00-223f-11ea-8b32-3f8f5a8cc8d2.png" style="width: 600px">
+
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">django-blog						<span class="comment"># 프로젝트 이름 (최상위)</span></span><br><span class="line">	config							<span class="comment"># 설정패키지 폴더</span></span><br><span class="line">		__init__.py</span><br><span class="line">		settings.py</span><br><span class="line">		urls.py</span><br><span class="line">		wsgi.py</span><br><span class="line">	.gitignore</span><br><span class="line">	.python-version</span><br><span class="line">	manage.py						<span class="comment"># 장고관련 도움을 주는 유틸리티 모듈</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="서버-구동하기"><a href="#서버-구동하기" class="headerlink" title="서버 구동하기"></a>서버 구동하기</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ (django-blog-env) ➜ django-blog&gt; ./manage.py runserver</span><br></pre></td></tr></table></figure>
+
+<h4 id="서버-구동-후-localhost-8000으로-접속"><a href="#서버-구동-후-localhost-8000으로-접속" class="headerlink" title="서버 구동 후 localhost: 8000으로 접속"></a>서버 구동 후 <code>localhost: 8000</code>으로 접속</h4><p>: 장고를 개발서버에서 구동</p>
+<p><img src="https://user-images.githubusercontent.com/57488252/71134377-64591600-2241-11ea-8789-f8aee28926eb.png" alt=""></p>
+<p><strong>개발서버 존재 이유</strong>: 애플리케이션을 개발했을 때, 실제 request를 보내고 response가 어떻게 돌아오는지 그때그때 알아야 한다. 이 작업을 매번 다른 컴퓨터에 서버를 띄우고 확인하는 것이 굉장히 힘들고 비효율적이다. 즉, 개발서버를 로컬에서 띄워 해당작업을 반복하여 테스트할 수 있다.</p>
+<p><strong>개발서버의 장점</strong>: 소스코드를 바꾸면 서버가 알아서 restart되고 소스코드에 틀린 부분이 있다면 터미널에 디버그 메시지가 나타나기 때문에 개발하기 편하다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 개발서버 끄기</span></span><br><span class="line">ctrl + c</span><br></pre></td></tr></table></figure>
+
+<h4 id="애플리케이션-만들기"><a href="#애플리케이션-만들기" class="headerlink" title="애플리케이션 만들기"></a>애플리케이션 만들기</h4><p>: 프로젝트 내부에 애플리케이션을 만듬</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ (django-blog-env) ➜ django-blog&gt; ./manage.py startapp blog</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-images.githubusercontent.com/57488252/71136849-7e96f200-2249-11ea-8433-9969ff01299a.png" alt="애플리케이션을 추가한 장고 프로젝트의 파일구조"></p>
+<p>해당 애플리케이션에서 장고 기능만 있는 것이 아니라 블로그 기능, 설문조사 기능, 이미지 업로드 기능 등 많은 기능을 가질 수 있다. 이러한 기능들을 의미 단위로 구분하기 위해 <code>blog</code>라는 패키지에서 소스코드를 작성한다. <code>blog</code>라는 패키지에 <span style="color: red">데이터베이스 모델과 관련이 있는 경우 이를 장고에서는 특별히 애플리케이션이라고 부른다.</span> 물론 <code>django-blog</code> 프로젝트에서 데이터베이스를 사용하지 않는 기능을 만들 경우에도 추가 가능하지만 이를 패키지라고 부른다.</p>
+<p>**<code>blog</code> 패키지를 애플리케이션으로 사용하기 위해서는 <code>config</code>의  <code>settings.py</code> 파일에 명명해주어야 한다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">INSTALLED_APPS = [</span><br><span class="line">    <span class="string">'django.contrib.admin'</span>,</span><br><span class="line">    <span class="string">'django.contrib.auth'</span>,</span><br><span class="line">    <span class="string">'django.contrib.contenttypes'</span>,</span><br><span class="line">    <span class="string">'django.contrib.sessions'</span>,</span><br><span class="line">    <span class="string">'django.contrib.messages'</span>,</span><br><span class="line">    <span class="string">'django.contrib.staticfiles'</span>,</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 이 패키지는 application취급</span></span><br><span class="line">    <span class="string">'blog'</span>,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-post-model-생성-및-migration"><a href="#2-post-model-생성-및-migration" class="headerlink" title="2. post model 생성 및 migration"></a>2. post model 생성 및 migration</h2><h4 id="models"><a href="#models" class="headerlink" title="models"></a><a href="https://wayhome25.github.io/django/2017/03/20/django-ep5-model/" target="_blank" rel="noopener">models</a></h4><ul>
+<li><code>models.CharField</code>: 글자 수가 제한된 텍스트를 정의할 때 사용 (제목같이 짧은 문자열 정보를 저장에 적합)</li>
+<li><code>models.TextField</code>: 글자 수에 제한이 없는 긴 텍스트를 위한 속성 (블로그 콘텐츠 저장에 적합)</li>
+<li><code>models.DateTimeField</code>: 날씨와 시간</li>
+<li><code>models.ForeignKey</code>: 다른 모델에 대한 링크</li>
+</ul>
+<h5 id="관계형-데이터베이스-RDB-Relational-Database"><a href="#관계형-데이터베이스-RDB-Relational-Database" class="headerlink" title="관계형 데이터베이스 - RDB (Relational Database)"></a>관계형 데이터베이스 - RDB (Relational Database)</h5><p>: 키(key)와 값(value)으로 이루어진 데이터베이스 테이블끼리 관계를 맺을 수 있다. (Python 딕셔너리 데이터타입과 유사)</p>
+<p><span style="color: teal">속도가 아닌 용량을 중심으로 발달했기 때문에 데이터를 찾을 때 NoSQL보다 시간이 소요된다</span></p>
+<h5 id="관계형-데이터베이스-관리-시스템-RDBMS-Relational-Database-Management-System"><a href="#관계형-데이터베이스-관리-시스템-RDBMS-Relational-Database-Management-System" class="headerlink" title="관계형 데이터베이스 관리 시스템 - RDBMS (Relational Database Management System)"></a>관계형 데이터베이스 관리 시스템 - RDBMS (Relational Database Management System)</h5><p>: 관계형 데이터베이스를 관리하는 시스템 (e.g. Oracle, msSQL, MySQL…)</p>
+<h4 id="장고모델-만들기"><a href="#장고모델-만들기" class="headerlink" title="장고모델 만들기"></a>장고모델 만들기</h4><p>: 이 모델을 저장하면 그 내용이 데이터베이스에 저장됨</p>
+<p><code>blog</code> 애플리케이션 안에 <code>models.py</code>에 작성</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.conf <span class="keyword">import</span> settings</span><br><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"><span class="keyword">from</span> django.utils <span class="keyword">import</span> timezone</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Post</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)</span><br><span class="line">    title = models.CharField(max_length=<span class="number">200</span>)</span><br><span class="line">    text = models.TextField(blank=<span class="literal">True</span>)</span><br><span class="line">    created_date = models.DateTimeField(default=timezone.now)</span><br><span class="line">    published_date = models.DateTimeField(blank=<span class="literal">True</span>, null=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.title</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">publish</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.published_date = timezone.now()</span><br><span class="line">        self.save()</span><br></pre></td></tr></table></figure>
+<h5 id="설명"><a href="#설명" class="headerlink" title="설명"></a>설명</h5><ul>
+<li><p><code>class Post(models.Model)</code></p>
+</li>
+<li><p><code>Post</code> 객체모델을 정의</p>
+</li>
+<li><p><code>models</code>: <code>Post</code>가 장고모델임을 의미하고 <code>Post</code>에 데이터베이스에 저장되어야 한다고 알림</p>
+</li>
+<li><p>속성 정의</p>
+<ul>
+<li><p><code>author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)</code></p>
+<ul>
+<li><p><code>author</code>객체는 장고 모델인 <code>models</code>에 외부참조키(<code>ForeignKey</code>)를 참조 </p>
+</li>
+<li><p>해당 <code>ForeignKey</code>는 <code>config</code>의  <code>settings</code>파일에 정의된 <code>AUTH_USER_MODEL</code>객체에서 가져옴</p>
+</li>
+<li><p><code>author</code> 객체의 어떤 레코드가 삭제되면 (<code>on_delete</code>), 이와 관련있는 <code>Post</code>객체의 레코드들도 연차적으로 삭제시킴. (여기서 <code>author</code>와 연관있는 객체는 <code>AUTH_USER_MODEL</code>의 레코드)</p>
+<p><span style="font-size: 12px">만약, <code>on_delete</code>가 설정되어 있지 않으면, 모델 <code>author</code>의 레코드를 참조하고 있는 다른 모델의 레코드가 있기 때문에 삭제할 수 없음</span></p>
+<p><span style="font-size: 13px; color: teal"><strong><code>CASCADE</code></strong>: 어떤 행위를 직접적으로 지시를 받지 않았으나, 연관된 어떤 모델이 받은 행위에 같은 영향(행위)을 받게 함</span></p>
+</li>
+</ul>
+</li>
+<li><p><code>title = models.CharField(max_length=200)</code></p>
+<p>: <code>title</code>객체는 장고모델인 <code>models</code>의 <code>CharField</code>속성을 사용하여 최대 글자 수를 <code>200</code>으로 제한한다.</p>
+</li>
+<li><p><code>text = models.TextField(blank=True)</code></p>
+<p>: <code>text</code>객체는 장고모델인 <code>models</code>의 <code>TextField</code>속성을 사용하여 긴 텍스트를 허용하고 공백(<code>blank=True</code>)을 허용한다.</p>
+</li>
+<li><p><code>created_date = models.DateTimeField(default=timezone.now)</code></p>
+<p>: <code>created_date</code>객체는 장고모델인 <code>models</code>의 <code>DateTimeField</code>속성을 사용하여 시간의 기본값을 현재 시간으로 지정(<code>default=timezone.now</code>)한다.</p>
+</li>
+<li><p><code>published_date = models.DateTimeField(blank=True, null=True)</code></p>
+<p>: <code>published_date</code>객체는 장고모델인 <code>models</code>의 <code>DateTimeField</code>속성을 사용하여 공백도 허용(<code>blank=True</code>)하고 아무 값도 입력되지 않는 것(<code>null=True</code>)도 허용한다.</p>
+</li>
+</ul>
+</li>
+<li><p>함수 정의</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># __str__ 문자열화 해주는 함수 선언</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></span><br><span class="line">  <span class="keyword">return</span> self.title</span><br></pre></td></tr></table></figure>
+
+<p><code>__str__</code>은 인스턴스 자체를 출력할 때 형식을 지정하는 함수로써 인스턴스가 문자열로 어떻게 표현될지 결정해주는 역할을 한다. </p>
+<p><span style="color: teal">즉, <code>__str__</code>을 호출하면 <code>Post</code>모델의 제목은 문자열로 변환되어 얻게된다.</span></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">publish</span><span class="params">(self)</span>:</span></span><br><span class="line">  self.published_date = timezone.now()</span><br><span class="line">  self.save()</span><br></pre></td></tr></table></figure>
+
+<p><code>publish</code>함수가 호출되면 <code>Post</code>객체의 <code>published_date</code>의 <code>timezone.now()</code> 속성이 호출되어 현재 포스트를 발행한 시간을 기록하고 데이터베이스에 저장(<code>self.save()</code>)한다. </p>
+</li>
+</ul>
+<h4 id="데이터베이스-툴-설치"><a href="#데이터베이스-툴-설치" class="headerlink" title="데이터베이스 툴 설치"></a>데이터베이스 툴 설치</h4><p>: 장고모델을 데이터베이스에서 확인하기 위해 <strong>Sqlite</strong> 설치</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew cask install db-browser-for-sqlite</span><br></pre></td></tr></table></figure>
+
+<h4 id="Sqlite-실행"><a href="#Sqlite-실행" class="headerlink" title="Sqlite 실행"></a>Sqlite 실행</h4><h5 id="manage-py에-저장된-데이터베이스를-Sqlite에-적용시키기"><a href="#manage-py에-저장된-데이터베이스를-Sqlite에-적용시키기" class="headerlink" title="manage.py에 저장된 데이터베이스를 Sqlite에 적용시키기"></a><code>manage.py</code>에 저장된 데이터베이스를 Sqlite에 적용시키기</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ (django-blog-env) ➜ django-blog&gt; ./manage.py migrate</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-images.githubusercontent.com/57488252/71141492-a42af800-2257-11ea-8d58-47283b26fca8.png" alt="데이터베이스 열기"></p>
+<p><img src="https://user-images.githubusercontent.com/57488252/71141423-6f1ea580-2257-11ea-9340-af0911ce538b.png" alt="migrate된 데이터베이스"></p>
+<ul>
+<li><code>auth_....</code>: 이 파일들은 인증을 위해 만들어진 기본적인 데이터베이스 파일(자동으로 생성)</li>
+<li><code>django_admin...</code>: 장고에서 관리자페이지를 만들 때 자동으로 생성됨</li>
+</ul>
+<h4 id="현재-소스코드에서-생성한-내가-만든-Post-테이블-추가"><a href="#현재-소스코드에서-생성한-내가-만든-Post-테이블-추가" class="headerlink" title="현재 소스코드에서 생성한 내가 만든 Post 테이블 추가"></a>현재 소스코드에서 생성한 내가 만든 <code>Post</code> 테이블 추가</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ (django-blog-env) ➜ django-blog&gt; ./manage.py makemigrations</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-images.githubusercontent.com/57488252/71142983-51077400-225c-11ea-9db6-d39ce0d47ef5.png" alt=""></p>
+<p><code>makemigrations</code>를 한 후 <code>Post</code>테이블을 데이터베이스에 추가하면 위 그림과 같이<code>models.py</code>에서 생성한 <code>Post</code> 테이블 객체가  <code>blog_post</code>라는 테이블로 생성된다. </p>
+<p>해당 <code>blog_post</code>테이블에는 6개의 컬럼이 존재하며 <code>id</code>컬럼은 기본적으로 <code>PrimaryKey</code>값으로 자동 생성된다.</p>
+</div><div class="article__tags"><div class="article__tags__title">tags:</div><a class="article__tag__item" href="/tags/Python/"><span class="fas fa-tag" aria-hidden="true"></span>Python</a><a class="article__tag__item" href="/tags/Django-Framework/"><span class="fas fa-tag" aria-hidden="true"></span>Django Framework</a><a class="article__tag__item" href="/tags/Sqlite/"><span class="fas fa-tag" aria-hidden="true"></span>Sqlite</a><a class="article__tag__item" href="/tags/Bootstrap/"><span class="fas fa-tag" aria-hidden="true"></span>Bootstrap</a></div></article><div class="comment__container" role="region" aria-label="comments"></div></div><footer class="footer"><p class="credit">Powered by  <a href="https://hexo.io/" rel="external noreferrer" target="_blank">Hexo</a>. Theme by  <a href="https://github.com/mulder21c" rel="external noreferrer" target="_blank">Sejin Kim</a></p></footer><div class="nav" aria-hidden="true"><nav class="nav--container" id="navigation" aria-labelledby="nav__heading"><h2 class="nav__heading" id="nav__heading">Navigation</h2><hr class="nav__seperator"><ul class="menu-list">
+    <li class="menu-item" >
+      <a href="/" >
+        home
+      </a>
+    </li>
+    <li class="menu-item" >
+      <a href="/archives" >
+        archives
+      </a>
+    </li></ul><hr class="nav__seperator"><h3 class="nav__heading--sub">Categories</h3><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Setting/">Setting</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EA%B3%B5%EB%B6%80/">공부</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%EA%B3%B5%EB%B6%80/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EA%B3%B5%EB%B6%80/Server/">Server</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EA%B3%B5%EB%B6%80/%EB%94%94%EC%9E%90%EC%9D%B8-%ED%8C%A8%ED%84%B4/">디자인 패턴</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EB%8F%84%ED%81%90%EB%A8%BC%ED%8A%B8-%EB%B2%88%EC%97%AD/">도큐먼트 번역</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%EB%8F%84%ED%81%90%EB%A8%BC%ED%8A%B8-%EB%B2%88%EC%97%AD/django-Framework/">django Framework</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">알고리즘</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/Python/">Python</a></li></ul></li><li class="category-list-item"><a class="category-list-link current" href="/categories/%EC%9E%A5%EA%B3%A0-%EB%B8%94%EB%A1%9C%EA%B7%B8/">장고 블로그</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/">프로젝트</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EC%9E%A5%EA%B3%A0-%EB%B8%94%EB%A1%9C%EA%B7%B8/">장고 블로그</a></li></ul></li></ul></nav></div><script src="/js/webfontloader.js"></script><script>WebFont.load({
+  custom: {
+    families: ["Noto Sans KR", "Font Awesome"],
+    urls: ["/fonts/notosanskr/NotoSansKR.css", "/fonts/fontawesome/fontawesome.css"]
+  }
+});</script><script src="/js/script.js"></script></body></html>
