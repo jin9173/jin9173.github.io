@@ -1,0 +1,138 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>장고 프로젝트 1일차 (북마크 앱, 클래스형 뷰) - 세진이의 개발노트</title><!-- Links--><link rel="canonical" href="https://jin9173.github.io/2020/01/18/project/django-blogProject/2020-01-18_blog_project_bookmark_app_1"><!-- preload--><!-- Icons--><!-- open graph--><meta name="description" content="가상환경 세팅   blogProject Git Repository       1  2       #  장고 설치">
+<meta property="og:type" content="article">
+<meta property="og:title" content="장고 프로젝트 1일차 (북마크 앱, 클래스형 뷰)">
+<meta property="og:url" content="https://jin9173.github.io/2020/01/18/project/django-blogProject/2020-01-18_blog_project_bookmark_app_1/">
+<meta property="og:site_name" content="세진이의 개발노트">
+<meta property="og:description" content="가상환경 세팅   blogProject Git Repository       1  2       #  장고 설치">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-01-18T02:04:50.000Z">
+<meta property="article:modified_time" content="2020-01-29T15:40:35.236Z">
+<meta property="article:author" content="Sejin Kim">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Django Framework">
+<meta property="article:tag" content="Sqlite">
+<meta property="article:tag" content="Bootstrap">
+<meta name="twitter:card" content="summary"><!-- verify website ownership--><!-- styles--><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/dracula.css"><!-- JSON LD for SEO--><script type="application/ld+json">{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "장고 프로젝트 1일차 (북마크 앱, 클래스형 뷰)",
+  "alternativeHeadline": null,
+  "image": {
+    "@type": "imageObject",
+    "url": null,
+    "width": null,
+    "height": null
+  },
+  "genre": null,
+  "keywords": "Python,Django Framework,Sqlite,Bootstrap",
+  "editor": {
+    "@type": "Person",
+    "name": "Sejin Kim"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Sejin Kim"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Sejin Kim"
+  },
+  "url": "https://jin9173.github.io/2020/01/18/project/django-blogProject/2020-01-18_blog_project_bookmark_app_1/",
+  "dateCreated": "2020-01-18",
+  "datePublished": "2020-01-18",
+  "articleBody": "가상환경 세팅   blogProject Git Repository       1  2       #  장고 설치"
+}</script><!--scripts--><meta name="generator" content="Hexo 4.2.0"></head><body class="post"><header class="header hero"><div class="hero-wrapper"><div class="gnb"><a href="/">세진이의 개발노트</a><button class="nav-toggle" type="button" aria-haspopup="true" aria-controls="navigation"><span></span><span></span><span></span>menu</button></div><h1 class="header__title">장고 프로젝트 1일차 (북마크 앱, 클래스형 뷰)</h1></div></header><div class="contents--container" role="main"><article class="article"><div class="article__meta"><time class="article__meta__time" datetime="2020-01-18T02:04:50.000Z"><span aria-label="posted"><span class="fas fa-calendar-day" aria-hidden="true"></span></span>2020-01-18 11:04:50</time><div class="article__meta__category"><span aria-label="category"><span class="fas fa-archive" aria-hidden="true"></span></span><a class="article__meta__category__item" href="/categories/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/">프로젝트</a><a class="article__meta__category__item" href="/categories/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EC%9E%A5%EA%B3%A0-%EB%B8%94%EB%A1%9C%EA%B7%B8/">장고 블로그</a></div></div><div class="article__content"><p><a href="https://jin9173.github.io/2020/01/17/etc/2020-01-17_pyenv_virtualenv/">가상환경 세팅</a></p>
+<p><a href="https://github.com/jin9173/blogProject.git" target="_blank" rel="noopener">blogProject Git Repository</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 장고 설치</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> (bookmark-env) ➜ bookmark&gt; pip install django==2.2.8</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="애플리케이션-설계"><a href="#애플리케이션-설계" class="headerlink" title="애플리케이션 설계"></a>애플리케이션 설계</h2><p>북마크에 등록된 URL을 따라 다른 사이트로 이동하는 링크 기능 구현, 북마크 생성, 수정, 삭제 기능</p>
+<ol>
+<li><p>사용자의 눈에 보이는 화면 UI 설계</p>
+<ul>
+<li>텍스트로 표현된 제목</li>
+<li>Bookmark title, Bookmark url을 테이블로 구현</li>
+</ul>
+</li>
+<li><p>그 화면에 접속하기 위한 URL 설계 (URLconf 코딩에 반영) - 로직설계 참고</p>
+</li>
+<li><p>서버에서 필요한 테이블 설계</p>
+<table>
+<thead>
+<tr>
+<th>필드명</th>
+<th>타입</th>
+<th>제약조건</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id</td>
+<td>Integer</td>
+<td>PK, Auto Increment</td>
+<td>Primary Key</td>
+</tr>
+<tr>
+<td>title</td>
+<td>CharField(100)</td>
+<td>Blank</td>
+<td>북마크 제목</td>
+</tr>
+<tr>
+<td>url</td>
+<td>URLField</td>
+<td>Unique</td>
+<td>북마크 url</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>로직 설계 (처리 흐름 설계)</p>
+<table>
+<thead>
+<tr>
+<th>URL</th>
+<th>View</th>
+<th>Template</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>/bookmark/</td>
+<td>bookmark_list_view()</td>
+<td>bookmark_list.html</td>
+</tr>
+<tr>
+<td>/bookmark/pk/</td>
+<td>bookmark_detail_view()</td>
+<td>bookmark_detail.html</td>
+</tr>
+<tr>
+<td>/admin/</td>
+<td>장고 기본 기능</td>
+<td>북마크 URL</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<h4 id="권장-코딩-순서"><a href="#권장-코딩-순서" class="headerlink" title="권장 코딩 순서"></a>권장 코딩 순서</h4><p>모델 코딩은 뷰 또는 템플릿과 독립적으로 이뤄지므로 가장 먼저 코딩한다. 그리고 URL, 뷰, 템플릿 매핑은 URLconf 코딩 시 결정되고, 클래스형 뷰를 사용하므로 템플릿보다 뷰를 먼저 코딩하는 것이 편리하다. </p>
+<p>그러므로 코딩순서는, </p>
+<ol>
+<li>Model</li>
+<li>URLconf</li>
+<li>View</li>
+<li>Template</li>
+</ol>
+</div><div class="article__tags"><div class="article__tags__title">tags:</div><a class="article__tag__item" href="/tags/Python/"><span class="fas fa-tag" aria-hidden="true"></span>Python</a><a class="article__tag__item" href="/tags/Django-Framework/"><span class="fas fa-tag" aria-hidden="true"></span>Django Framework</a><a class="article__tag__item" href="/tags/Sqlite/"><span class="fas fa-tag" aria-hidden="true"></span>Sqlite</a><a class="article__tag__item" href="/tags/Bootstrap/"><span class="fas fa-tag" aria-hidden="true"></span>Bootstrap</a></div></article><div class="comment__container" role="region" aria-label="comments"></div></div><footer class="footer"><p class="credit">Powered by  <a href="https://hexo.io/" rel="external noreferrer" target="_blank">Hexo</a>. Theme by  <a href="https://github.com/mulder21c" rel="external noreferrer" target="_blank">Sejin Kim</a></p></footer><div class="nav" aria-hidden="true"><nav class="nav--container" id="navigation" aria-labelledby="nav__heading"><h2 class="nav__heading" id="nav__heading">Navigation</h2><hr class="nav__seperator"><ul class="menu-list">
+    <li class="menu-item" >
+      <a href="/" >
+        home
+      </a>
+    </li>
+    <li class="menu-item" >
+      <a href="/archives" >
+        archives
+      </a>
+    </li></ul><hr class="nav__seperator"><h3 class="nav__heading--sub">Categories</h3><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Setting/">Setting</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EA%B3%B5%EB%B6%80/">공부</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%EA%B3%B5%EB%B6%80/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EA%B3%B5%EB%B6%80/Server/">Server</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EA%B3%B5%EB%B6%80/%EB%94%94%EC%9E%90%EC%9D%B8-%ED%8C%A8%ED%84%B4/">디자인 패턴</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EB%8F%84%ED%81%90%EB%A8%BC%ED%8A%B8-%EB%B2%88%EC%97%AD/">도큐먼트 번역</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%EB%8F%84%ED%81%90%EB%A8%BC%ED%8A%B8-%EB%B2%88%EC%97%AD/django-Framework/">django Framework</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">알고리즘</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/Python/">Python</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EC%9E%A5%EA%B3%A0-%EB%B8%94%EB%A1%9C%EA%B7%B8/">장고 블로그</a></li><li class="category-list-item"><a class="category-list-link current" href="/categories/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/">프로젝트</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link current" href="/categories/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EC%9E%A5%EA%B3%A0-%EB%B8%94%EB%A1%9C%EA%B7%B8/">장고 블로그</a></li></ul></li></ul></nav></div><script src="/js/webfontloader.js"></script><script>WebFont.load({
+  custom: {
+    families: ["Noto Sans KR", "Font Awesome"],
+    urls: ["/fonts/notosanskr/NotoSansKR.css", "/fonts/fontawesome/fontawesome.css"]
+  }
+});</script><script src="/js/script.js"></script></body></html>

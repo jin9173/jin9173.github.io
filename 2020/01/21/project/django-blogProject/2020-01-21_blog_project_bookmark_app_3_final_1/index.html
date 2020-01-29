@@ -1,21 +1,23 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>장고 프로젝트 6일차 (블로그 앱, 클래스형 뷰) - 세진이의 개발노트</title><!-- Links--><link rel="canonical" href="https://jin9173.github.io/2020/01/30/project/django-blogProject/2020-01-30_blog_project_blog_app_6"><!-- preload--><!-- Icons--><!-- open graph--><meta name="description" content="blogProject Git Repository    첫 페이지 설계 첫 페이지는 테이블 설계 필요없이 UI를 설계하는 템플릿 파일 설계가 주된 작업이다.    URL 설계    URL 패턴 뷰 이름 뷰가 처리하는 내용     &#x2F; HomeView(TemplateView) hom">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>장고 프로젝트 3일차 (북마크 앱 미완성본) - 세진이의 개발노트</title><!-- Links--><link rel="canonical" href="https://jin9173.github.io/2020/01/21/project/django-blogProject/2020-01-21_blog_project_bookmark_app_3_final_1"><!-- preload--><!-- Icons--><!-- open graph--><meta name="description" content="blogProject Git Repository">
 <meta property="og:type" content="article">
-<meta property="og:title" content="장고 프로젝트 6일차 (블로그 앱, 클래스형 뷰)">
-<meta property="og:url" content="https://jin9173.github.io/2020/01/30/project/django-blogProject/2020-01-30_blog_project_blog_app_6/">
+<meta property="og:title" content="장고 프로젝트 3일차 (북마크 앱 미완성본)">
+<meta property="og:url" content="https://jin9173.github.io/2020/01/21/project/django-blogProject/2020-01-21_blog_project_bookmark_app_3_final_1/">
 <meta property="og:site_name" content="세진이의 개발노트">
-<meta property="og:description" content="blogProject Git Repository    첫 페이지 설계 첫 페이지는 테이블 설계 필요없이 UI를 설계하는 템플릿 파일 설계가 주된 작업이다.    URL 설계    URL 패턴 뷰 이름 뷰가 처리하는 내용     &#x2F; HomeView(TemplateView) hom">
+<meta property="og:description" content="blogProject Git Repository">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-01-29T15:27:50.000Z">
-<meta property="article:modified_time" content="2020-01-29T15:36:53.455Z">
+<meta property="og:image" content="http://img.youtube.com/vi/uLR1RNqJ1Mw/0.jpg">
+<meta property="article:published_time" content="2020-01-20T20:04:50.000Z">
+<meta property="article:modified_time" content="2020-01-29T15:39:56.285Z">
 <meta property="article:author" content="Sejin Kim">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="Django Framework">
 <meta property="article:tag" content="Sqlite">
 <meta property="article:tag" content="Bootstrap">
-<meta name="twitter:card" content="summary"><!-- verify website ownership--><!-- styles--><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/dracula.css"><!-- JSON LD for SEO--><script type="application/ld+json">{
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://img.youtube.com/vi/uLR1RNqJ1Mw/0.jpg"><!-- verify website ownership--><!-- styles--><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/dracula.css"><!-- JSON LD for SEO--><script type="application/ld+json">{
   "@context": "http://schema.org",
   "@type": "BlogPosting",
-  "headline": "장고 프로젝트 6일차 (블로그 앱, 클래스형 뷰)",
+  "headline": "장고 프로젝트 3일차 (북마크 앱 미완성본)",
   "alternativeHeadline": null,
   "image": {
     "@type": "imageObject",
@@ -37,41 +39,12 @@
     "@type": "Person",
     "name": "Sejin Kim"
   },
-  "url": "https://jin9173.github.io/2020/01/30/project/django-blogProject/2020-01-30_blog_project_blog_app_6/",
-  "dateCreated": "2020-01-30",
-  "datePublished": "2020-01-30",
-  "articleBody": "blogProject Git Repository    첫 페이지 설계 첫 페이지는 테이블 설계 필요없이 UI를 설계하는 템플릿 파일 설계가 주된 작업이다.    URL 설계    URL 패턴 뷰 이름 뷰가 처리하는 내용     / HomeView(TemplateView) hom"
-}</script><!--scripts--><meta name="generator" content="Hexo 4.2.0"></head><body class="post"><header class="header hero"><div class="hero-wrapper"><div class="gnb"><a href="/">세진이의 개발노트</a><button class="nav-toggle" type="button" aria-haspopup="true" aria-controls="navigation"><span></span><span></span><span></span>menu</button></div><h1 class="header__title">장고 프로젝트 6일차 (블로그 앱, 클래스형 뷰)</h1></div></header><div class="contents--container" role="main"><article class="article"><div class="article__meta"><time class="article__meta__time" datetime="2020-01-29T15:27:50.000Z"><span aria-label="posted"><span class="fas fa-calendar-day" aria-hidden="true"></span></span>2020-01-30 00:27:50</time><div class="article__meta__category"><span aria-label="category"><span class="fas fa-archive" aria-hidden="true"></span></span><a class="article__meta__category__item" href="/categories/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/">프로젝트</a><a class="article__meta__category__item" href="/categories/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EC%9E%A5%EA%B3%A0-%EB%B8%94%EB%A1%9C%EA%B7%B8/">장고 블로그</a></div></div><div class="article__content"><p><a href="https://github.com/jin9173/blogProject.git" target="_blank" rel="noopener">blogProject Git Repository</a></p>
-<h2 id="첫-페이지-설계"><a href="#첫-페이지-설계" class="headerlink" title="첫 페이지 설계"></a>첫 페이지 설계</h2><p>첫 페이지는 테이블 설계 필요없이 UI를 설계하는 템플릿 파일 설계가 주된 작업이다. </p>
-<h3 id="URL-설계"><a href="#URL-설계" class="headerlink" title="URL 설계"></a>URL 설계</h3><table>
-<thead>
-<tr>
-<th>URL 패턴</th>
-<th>뷰 이름</th>
-<th>뷰가 처리하는 내용</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>/</td>
-<td>HomeView(TemplateView)</td>
-<td>home.html 템플릿을 보여줌</td>
-</tr>
-<tr>
-<td>/bookmark/</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>/blog/</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>/admin/</td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
+  "url": "https://jin9173.github.io/2020/01/21/project/django-blogProject/2020-01-21_blog_project_bookmark_app_3_final_1/",
+  "dateCreated": "2020-01-21",
+  "datePublished": "2020-01-21",
+  "articleBody": "blogProject Git Repository"
+}</script><!--scripts--><meta name="generator" content="Hexo 4.2.0"></head><body class="post"><header class="header hero"><div class="hero-wrapper"><div class="gnb"><a href="/">세진이의 개발노트</a><button class="nav-toggle" type="button" aria-haspopup="true" aria-controls="navigation"><span></span><span></span><span></span>menu</button></div><h1 class="header__title">장고 프로젝트 3일차 (북마크 앱 미완성본)</h1></div></header><div class="contents--container" role="main"><article class="article"><div class="article__meta"><time class="article__meta__time" datetime="2020-01-20T20:04:50.000Z"><span aria-label="posted"><span class="fas fa-calendar-day" aria-hidden="true"></span></span>2020-01-21 05:04:50</time><div class="article__meta__category"><span aria-label="category"><span class="fas fa-archive" aria-hidden="true"></span></span><a class="article__meta__category__item" href="/categories/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/">프로젝트</a><a class="article__meta__category__item" href="/categories/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EC%9E%A5%EA%B3%A0-%EB%B8%94%EB%A1%9C%EA%B7%B8/">장고 블로그</a></div></div><div class="article__content"><p><a href="https://github.com/jin9173/blogProject.git" target="_blank" rel="noopener">blogProject Git Repository</a></p>
+<p><a href="https://www.youtube.com/watch?v=4cQ3h8e2o5Y" target="_blank" rel="noopener"><img src="http://img.youtube.com/vi/uLR1RNqJ1Mw/0.jpg" alt="Video Label"></a> </p>
 </div><div class="article__tags"><div class="article__tags__title">tags:</div><a class="article__tag__item" href="/tags/Python/"><span class="fas fa-tag" aria-hidden="true"></span>Python</a><a class="article__tag__item" href="/tags/Django-Framework/"><span class="fas fa-tag" aria-hidden="true"></span>Django Framework</a><a class="article__tag__item" href="/tags/Sqlite/"><span class="fas fa-tag" aria-hidden="true"></span>Sqlite</a><a class="article__tag__item" href="/tags/Bootstrap/"><span class="fas fa-tag" aria-hidden="true"></span>Bootstrap</a></div></article><div class="comment__container" role="region" aria-label="comments"></div></div><footer class="footer"><p class="credit">Powered by  <a href="https://hexo.io/" rel="external noreferrer" target="_blank">Hexo</a>. Theme by  <a href="https://github.com/mulder21c" rel="external noreferrer" target="_blank">Sejin Kim</a></p></footer><div class="nav" aria-hidden="true"><nav class="nav--container" id="navigation" aria-labelledby="nav__heading"><h2 class="nav__heading" id="nav__heading">Navigation</h2><hr class="nav__seperator"><ul class="menu-list">
     <li class="menu-item" >
       <a href="/" >
