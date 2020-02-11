@@ -1,0 +1,139 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Python 기초(for문과 리스트 심화) - 세진이의 개발노트</title><!-- Links--><link rel="canonical" href="https://jin9173.github.io/2020/02/10/study/python/2020-02-10_py_for_list"><!-- preload--><!-- Icons--><!-- open graph--><meta name="description" content="for 반복문      1  2  3  4       for 변수 in 리스트&#x2F;range&#x2F;문자열:    &lt;첫번째 실행할 줄&gt;    &lt;두번">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python 기초(for문과 리스트 심화)">
+<meta property="og:url" content="https://jin9173.github.io/2020/02/10/study/python/2020-02-10_py_for_list/">
+<meta property="og:site_name" content="세진이의 개발노트">
+<meta property="og:description" content="for 반복문      1  2  3  4       for 변수 in 리스트&#x2F;range&#x2F;문자열:    &lt;첫번째 실행할 줄&gt;    &lt;두번">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-02-10T00:30:50.000Z">
+<meta property="article:modified_time" content="2020-02-11T01:24:34.238Z">
+<meta property="article:author" content="Sejin Kim">
+<meta name="twitter:card" content="summary"><!-- verify website ownership--><!-- styles--><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/dracula.css"><!-- JSON LD for SEO--><script type="application/ld+json">{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Python 기초(for문과 리스트 심화)",
+  "alternativeHeadline": null,
+  "image": {
+    "@type": "imageObject",
+    "url": null,
+    "width": null,
+    "height": null
+  },
+  "genre": null,
+  "keywords": "",
+  "editor": {
+    "@type": "Person",
+    "name": "Sejin Kim"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Sejin Kim"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Sejin Kim"
+  },
+  "url": "https://jin9173.github.io/2020/02/10/study/python/2020-02-10_py_for_list/",
+  "dateCreated": "2020-02-10",
+  "datePublished": "2020-02-10",
+  "articleBody": "for 반복문      1  2  3  4       for 변수 in 리스트/range/문자열:    &lt;첫번째 실행할 줄&gt;    &lt;두번"
+}</script><!--scripts--><meta name="generator" content="Hexo 4.2.0"></head><body class="post"><header class="header hero"><div class="hero-wrapper"><div class="gnb"><a href="/">세진이의 개발노트</a><button class="nav-toggle" type="button" aria-haspopup="true" aria-controls="navigation"><span></span><span></span><span></span>menu</button></div><h1 class="header__title">Python 기초(for문과 리스트 심화)</h1></div></header><div class="contents--container" role="main"><article class="article"><div class="article__meta"><time class="article__meta__time" datetime="2020-02-10T00:30:50.000Z"><span aria-label="posted"><span class="fas fa-calendar-day" aria-hidden="true"></span></span>2020-02-10 09:30:50</time><div class="article__meta__category"><span aria-label="category"><span class="fas fa-archive" aria-hidden="true"></span></span><a class="article__meta__category__item" href="/categories/%EA%B3%B5%EB%B6%80/">공부</a><a class="article__meta__category__item" href="/categories/%EA%B3%B5%EB%B6%80/Python/">Python</a></div></div><div class="article__content"><h2 id="for-반복문"><a href="#for-반복문" class="headerlink" title="for 반복문"></a>for 반복문</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> 변수 <span class="keyword">in</span> 리스트/range/문자열:</span><br><span class="line">  &lt;첫번째 실행할 줄&gt;</span><br><span class="line">  &lt;두번째 실행할 줄&gt;</span><br><span class="line">  ...</span><br></pre></td></tr></table></figure>
+
+<p>while문을 for문으로 바꾸기</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">big_bang = [<span class="string">'지드래곤'</span>, <span class="string">'태양'</span>, <span class="string">'탑'</span>, <span class="string">'대성'</span>, <span class="string">'승리'</span>]</span><br><span class="line"></span><br><span class="line">i = <span class="number">0</span> <span class="comment"># i라는 요소는 인덱싱을 위한 용도일 뿐, 그 이외에는 아무런 쓸모가 없다</span></span><br><span class="line"><span class="keyword">while</span> i &lt; len(big_bang): <span class="comment"># len(big_bang)도 i와의 비교 이외에는 별도의 쓰임이 없다</span></span><br><span class="line">  print(big_bang[i])</span><br><span class="line">  i += <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">지드래곤</span><br><span class="line">태양</span><br><span class="line">탑</span><br><span class="line">대성</span><br><span class="line">승리</span><br></pre></td></tr></table></figure>
+
+<p>for문을 사용하여 while문의 불필요한 부분들을 지우고 직관적이게 코드를 짜보자.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">big_bang = [<span class="string">'지드래곤'</span>, <span class="string">'태양'</span>, <span class="string">'탑'</span>, <span class="string">'대성'</span>, <span class="string">'승리'</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># member변수는 for문의 수행부분에서만 쓰이고 사라지는 local변수</span></span><br><span class="line"><span class="keyword">for</span> member <span class="keyword">in</span> big_bang:</span><br><span class="line">  print(member)</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h3 id="range"><a href="#range" class="headerlink" title="range()"></a>range()</h3><ul>
+<li>간편하고 깔끔 (굳이 리스트를 만들지 않아도 동일한 효과 구현 가능)</li>
+<li>효율적인 메모리 공간 사용 (1부터 100까지의 리스트를 쓰면 파이썬에서 그 만큼의 공간을 마련해야 하지만 range함수를 쓰면 1의 값을 쓰고 버리고 2의 값을 쓰고 버리고 하는 식으로 메모리 공간을 아낄 수 있다)</li>
+</ul>
+<h4 id="파라미터가-2개-있는-range"><a href="#파라미터가-2개-있는-range" class="headerlink" title="파라미터가 2개 있는 range()"></a>파라미터가 2개 있는 range()</h4><p>: range(n, m)은 n부터 m-1까지의 수들을 의미</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(n, m):</span><br><span class="line">  print(i)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">11</span>):</span><br><span class="line">  print(i)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td></tr></table></figure>
+
+<h4 id="파라미터가-1개-있는-range"><a href="#파라미터가-1개-있는-range" class="headerlink" title="파라미터가 1개 있는 range()"></a>파라미터가 1개 있는 range()</h4><p>: range(m)은 0부터 m-1까지의 수들을 의미</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(m):</span><br><span class="line">  print(i)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">  print(i)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">0</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td></tr></table></figure>
+
+<h4 id="파라미터가-3개-있는-range"><a href="#파라미터가-3개-있는-range" class="headerlink" title="파라미터가 3개 있는 range()"></a>파라미터가 3개 있는 range()</h4><p>: range(n, m, s)은 n부터 m-1까지의 수 중 간격이 s인 수들을 의미</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(n, m, s):</span><br><span class="line">  print(i)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">3</span>, <span class="number">17</span>, <span class="number">3</span>):</span><br><span class="line">  print(i)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">6</span><br><span class="line">9</span><br><span class="line">12</span><br><span class="line">15</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="엘리어싱-Aliasing"><a href="#엘리어싱-Aliasing" class="headerlink" title="엘리어싱 (Aliasing)"></a>엘리어싱 (Aliasing)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x = [<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">11</span>]</span><br><span class="line">y = x</span><br><span class="line">y[<span class="number">2</span>] = <span class="number">4</span></span><br><span class="line">print(x) <span class="comment"># [2, 3, 4, 7, 11]</span></span><br><span class="line">print(y) <span class="comment"># [2, 3, 4, 7, 11]</span></span><br></pre></td></tr></table></figure>
+
+<p><code>x</code>는 <code>[2, 3, 5, 7, 11]</code>이 나오고 <code>y</code>는 <code>[2, 3, 4, 7, 11]</code>이 나올 줄 알았는데 결과과 예상과 다르다. <code>y</code>의 원소만 바꾸었을 뿐인데 <code>x</code>와 <code>y</code>가 똑같이 <code>[2, 3, 4, 7. 11]</code>로 변한 이유는 엘리어싱이라는 개념 때문이다. </p>
+<p>코드의 첫번째 줄에서는 <code>[2, 3, 5, 7, 11]</code> 리스트에 <code>x</code>라는 이름표를 달아준다. </p>
+<p>두번째 줄에서 <code>y = x</code>라는 명령에 의해, 그 같은 리스트에 <code>y</code>라는 이름표를 달아준다.</p>
+<p>세번째 줄에서 리스트 <code>y</code>의 인덱스 <code>2</code>의 값을 <code>4</code>로 바꿔주면, 리스트는 <code>[2, 3, 4, 7, 11]</code>이 된다. </p>
+<p>그런데 바뀐 <code>[1, 2, 4, 7, 11]</code>이라는 리스트가 <code>y</code>라는 이름표 뿐만 아니라, <code>x</code>라는 이름표도 갖고 있다. 그래서 <code>x</code>와 <code>y</code>를 출력하라는 명령이 있을 때, 모두 같은 <code>[2, 3, 4, 7, 11]</code>이 출력되는 것이다. <strong>두 변수가 서로 이름은 다르지만, 사실 같은 메모리 주소에 있는 값을 가리키고 있기 때문에 동일한 리스트가 출력된 것이다.</strong> <span style="color: red">즉, <code>y</code>는 <code>x</code>의 <strong>Alias(가명)</strong>이라고 할 수 있다.</span></p>
+ <br>
+
+<h2 id="리스트-복사-list"><a href="#리스트-복사-list" class="headerlink" title="리스트 복사 list()"></a>리스트 복사 list()</h2><p>리스트의 원본을 그대로 둔 채, 리스트의 복사본만 바꾸고 싶은 경우</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x = [<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">11</span>]</span><br><span class="line">y = list(x) <span class="comment"># 서로 다른 메모리 주소에 저장</span></span><br><span class="line">y[<span class="number">2</span>] = <span class="number">4</span></span><br><span class="line">print(x) <span class="comment"># [2, 3, 5, 7, 11]</span></span><br><span class="line">print(y) <span class="comment"># [2, 3, 4, 7, 11]</span></span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="리스트와-문자열"><a href="#리스트와-문자열" class="headerlink" title="리스트와 문자열"></a>리스트와 문자열</h2><h3 id="공통점"><a href="#공통점" class="headerlink" title="공통점"></a><span style="color: red">공통점</span></h3><h4 id="인덱싱-Indexing"><a href="#인덱싱-Indexing" class="headerlink" title="인덱싱 (Indexing)"></a>인덱싱 (Indexing)</h4><p>두 자료형은 공통적으로 인덱싱 가능</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">alphabets_list = [<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>, <span class="string">'D'</span>, <span class="string">'E'</span>, <span class="string">'F'</span>, <span class="string">'G'</span>, <span class="string">'H'</span>, <span class="string">'I'</span>, <span class="string">'J'</span>]</span><br><span class="line">print(alphabet_list[<span class="number">0</span>]) <span class="comment"># A</span></span><br><span class="line"></span><br><span class="line">alphabets_string = <span class="string">'ABCDEFGHIJ'</span></span><br><span class="line">print(alphabet_string[<span class="number">-1</span>]) <span class="comment"># J</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="for-반복문-1"><a href="#for-반복문-1" class="headerlink" title="for 반복문"></a>for 반복문</h4><p>두 자료형은 인덱싱이 가능하기 때문에 for 반복문에서도 활용 가능 (이터러블 객체)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">alphbets_list = [<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>, <span class="string">'D'</span>, <span class="string">'E'</span>, <span class="string">'F'</span>]</span><br><span class="line"><span class="keyword">for</span> alphabet <span class="keyword">in</span> alphabets_list:</span><br><span class="line">  print(alphabet)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">alphabets_string = <span class="string">'ABCDEF'</span></span><br><span class="line"><span class="keyword">for</span> alphabet <span class="keyword">in</span> alphabets_string:</span><br><span class="line">  print(alphabet)</span><br></pre></td></tr></table></figure>
+
+<h4 id="슬라이싱-Slicing"><a href="#슬라이싱-Slicing" class="headerlink" title="슬라이싱 (Slicing)"></a>슬라이싱 (Slicing)</h4><p>두 자료형은 공통적으로 슬라이싱 가능</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">alphabets_list = [<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>, <span class="string">'D'</span>, <span class="string">'E'</span>, <span class="string">'F'</span>, <span class="string">'G'</span>, <span class="string">'H'</span>, <span class="string">'I'</span>, <span class="string">'J'</span>]</span><br><span class="line">print(alphabets_list[<span class="number">0</span>:<span class="number">5</span>]) <span class="comment"># ['A', 'B', 'C', 'D', 'E']</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">alphabets_string = <span class="string">'ABCDEFGHIJ'</span></span><br><span class="line">print(alphabets_string[:<span class="number">4</span>]) <span class="comment"># ABCD</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="덧셈-연산"><a href="#덧셈-연산" class="headerlink" title="덧셈 연산 +"></a>덧셈 연산 +</h4><p>두 자료형에게 모두 덧셈은 <strong>연결</strong>하는 연산이다</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">list1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line">list2 = [<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]</span><br><span class="line">list3 = list1 + list2</span><br><span class="line">print(list3) <span class="comment"># [1, 2, 3, 4, 5, 6, 7, 8]</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">string1 = <span class="string">'1234'</span></span><br><span class="line">string2 = <span class="string">'5678'</span></span><br><span class="line">string3 = string1 + string2</span><br><span class="line">print(string3) <span class="comment"># 12345678</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="len"><a href="#len" class="headerlink" title="len()"></a>len()</h4><p>두 자료형은 모두 길이를 재는 len함수를 쓸 수 있다</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(len[<span class="string">'H'</span>, <span class="string">'E'</span>, <span class="string">'L'</span>, <span class="string">'L'</span>, <span class="string">'O'</span>]) <span class="comment"># 5</span></span><br><span class="line">print(len[<span class="string">'Hello, world!'</span>]) <span class="comment"># 13</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="차이점"><a href="#차이점" class="headerlink" title="차이점"></a><span style="color: red">차이점</span></h3><h4 id="Mutable-수정-가능-리스트-VS-Immutable-수정-불가능-문자열-숫자-불린"><a href="#Mutable-수정-가능-리스트-VS-Immutable-수정-불가능-문자열-숫자-불린" class="headerlink" title="Mutable(수정 가능 - 리스트) VS Immutable(수정 불가능 - 문자열, 숫자, 불린)"></a>Mutable(수정 가능 - 리스트) VS Immutable(수정 불가능 - 문자열, 숫자, 불린)</h4><p>리스트는 데이터를 바꿀 수 있지만 문자열은 바꿀 수 없다. </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line">numbers[<span class="number">0</span>] = <span class="number">5</span></span><br><span class="line">print(numbers) <span class="comment"># [5, 2, 3, 4] 리스트는 mutable</span></span><br></pre></td></tr></table></figure>
+
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 문자열은 리스트와 달리 데이터의 생성, 삭제, 수정이 불가능</span></span><br><span class="line">name = <span class="string">'sejin'</span></span><br><span class="line">name[<span class="number">0</span>] = <span class="string">'J'</span></span><br><span class="line">print(name) <span class="comment"># TypeError 문자열은 immutable</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+</div></article><div class="comment__container" role="region" aria-label="comments"></div></div><footer class="footer"><p class="credit">Powered by  <a href="https://hexo.io/" rel="external noreferrer" target="_blank">Hexo</a>. Theme by  <a href="https://github.com/mulder21c" rel="external noreferrer" target="_blank">Sejin Kim</a></p></footer><div class="nav" aria-hidden="true"><nav class="nav--container" id="navigation" aria-labelledby="nav__heading"><h2 class="nav__heading" id="nav__heading">Navigation</h2><hr class="nav__seperator"><ul class="menu-list">
+    <li class="menu-item" >
+      <a href="/" >
+        home
+      </a>
+    </li>
+    <li class="menu-item" >
+      <a href="/archives" >
+        archives
+      </a>
+    </li></ul><hr class="nav__seperator"><h3 class="nav__heading--sub">Categories</h3><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Setting/">Setting</a></li><li class="category-list-item"><a class="category-list-link current" href="/categories/%EA%B3%B5%EB%B6%80/">공부</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link current" href="/categories/%EA%B3%B5%EB%B6%80/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EA%B3%B5%EB%B6%80/Server/">Server</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EA%B3%B5%EB%B6%80/%EB%94%94%EC%9E%90%EC%9D%B8-%ED%8C%A8%ED%84%B4/">디자인 패턴</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EB%8F%84%ED%81%90%EB%A8%BC%ED%8A%B8-%EB%B2%88%EC%97%AD/">도큐먼트 번역</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%EB%8F%84%ED%81%90%EB%A8%BC%ED%8A%B8-%EB%B2%88%EC%97%AD/django-Framework/">django Framework</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">알고리즘</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/Python/">Python</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/">프로젝트</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EC%9E%A5%EA%B3%A0-%EB%B8%94%EB%A1%9C%EA%B7%B8/">장고 블로그</a></li></ul></li></ul></nav></div><script src="/js/webfontloader.js"></script><script>WebFont.load({
+  custom: {
+    families: ["Noto Sans KR", "Font Awesome"],
+    urls: ["/fonts/notosanskr/NotoSansKR.css", "/fonts/fontawesome/fontawesome.css"]
+  }
+});</script><script src="/js/script.js"></script></body></html>
