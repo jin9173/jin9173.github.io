@@ -1,0 +1,60 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Python 문제풀이 (환전 서비스) - 세진이의 개발노트</title><!-- Links--><link rel="canonical" href="https://jin9173.github.io/2020/02/10/problem_solving/python/2020-02-10_py_problem_solving3"><!-- preload--><!-- Icons--><!-- open graph--><meta name="description" content="환전 서비스 환율에 따라 화폐를 교환해주는 서비스를 운영하고 있습니다. 신속한 환전을 위하여 원(￦) 단위로 정리되어 있는 리스트를 달러($)와 엔(￥)으로 변환해주는 프로그램을 써야합니다. 현재 환율은 1달러 당 1000원, 1000엔 당 8달러입니다. 이 정보를 이용해서 파라미터 won으로 한국 금액을 받고 미국 금액을 리턴해주는 krw_to_usd 함">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python 문제풀이 (환전 서비스)">
+<meta property="og:url" content="https://jin9173.github.io/2020/02/10/problem_solving/python/2020-02-10_py_problem_solving3/">
+<meta property="og:site_name" content="세진이의 개발노트">
+<meta property="og:description" content="환전 서비스 환율에 따라 화폐를 교환해주는 서비스를 운영하고 있습니다. 신속한 환전을 위하여 원(￦) 단위로 정리되어 있는 리스트를 달러($)와 엔(￥)으로 변환해주는 프로그램을 써야합니다. 현재 환율은 1달러 당 1000원, 1000엔 당 8달러입니다. 이 정보를 이용해서 파라미터 won으로 한국 금액을 받고 미국 금액을 리턴해주는 krw_to_usd 함">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-02-10T01:00:50.000Z">
+<meta property="article:modified_time" content="2020-02-11T23:46:28.779Z">
+<meta property="article:author" content="Sejin Kim">
+<meta property="article:tag" content="Codeit">
+<meta name="twitter:card" content="summary"><!-- verify website ownership--><!-- styles--><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/dracula.css"><!-- JSON LD for SEO--><script type="application/ld+json">{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Python 문제풀이 (환전 서비스)",
+  "alternativeHeadline": null,
+  "image": {
+    "@type": "imageObject",
+    "url": null,
+    "width": null,
+    "height": null
+  },
+  "genre": null,
+  "keywords": "Codeit",
+  "editor": {
+    "@type": "Person",
+    "name": "Sejin Kim"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Sejin Kim"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Sejin Kim"
+  },
+  "url": "https://jin9173.github.io/2020/02/10/problem_solving/python/2020-02-10_py_problem_solving3/",
+  "dateCreated": "2020-02-10",
+  "datePublished": "2020-02-10",
+  "articleBody": "환전 서비스 환율에 따라 화폐를 교환해주는 서비스를 운영하고 있습니다. 신속한 환전을 위하여 원(￦) 단위로 정리되어 있는 리스트를 달러($)와 엔(￥)으로 변환해주는 프로그램을 써야합니다. 현재 환율은 1달러 당 1000원, 1000엔 당 8달러입니다. 이 정보를 이용해서 파라미터 won으로 한국 금액을 받고 미국 금액을 리턴해주는 krw_to_usd 함수와, 파라미터 dollars로 미국 금액을 받고 일본 금액을 리턴해주는 usd_to_jpy 함수를 쓰세요. 그리고 이 함수들을"
+}</script><!--scripts--><meta name="generator" content="Hexo 4.2.0"></head><body class="post"><header class="header hero"><div class="hero-wrapper"><div class="gnb"><a href="/">세진이의 개발노트</a><button class="nav-toggle" type="button" aria-haspopup="true" aria-controls="navigation"><span></span><span></span><span></span>menu</button></div><h1 class="header__title">Python 문제풀이 (환전 서비스)</h1></div></header><div class="contents--container" role="main"><article class="article"><div class="article__meta"><time class="article__meta__time" datetime="2020-02-10T01:00:50.000Z"><span aria-label="posted"><span class="fas fa-calendar-day" aria-hidden="true"></span></span>2020-02-10 10:00:50</time><div class="article__meta__category"><span aria-label="category"><span class="fas fa-archive" aria-hidden="true"></span></span><a class="article__meta__category__item" href="/categories/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4/">문제풀이</a><a class="article__meta__category__item" href="/categories/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4/Python/">Python</a></div></div><div class="article__content"><h4 id="환전-서비스"><a href="#환전-서비스" class="headerlink" title="환전 서비스"></a>환전 서비스</h4><p>환율에 따라 화폐를 교환해주는 서비스를 운영하고 있습니다. 신속한 환전을 위하여 원(<code>￦</code>) 단위로 정리되어 있는 리스트를 달러(<code>$</code>)와 엔(<code>￥</code>)으로 변환해주는 프로그램을 써야합니다.</p>
+<p>현재 환율은 <code>1</code>달러 당 <code>1000</code>원, <code>1000</code>엔 당 <code>8</code>달러입니다. 이 정보를 이용해서 파라미터 <code>won</code>으로 한국 금액을 받고 미국 금액을 리턴해주는 <code>krw_to_usd</code> 함수와, 파라미터 <code>dollars</code>로 미국 금액을 받고 일본 금액을 리턴해주는 <code>usd_to_jpy</code> 함수를 쓰세요. 그리고 이 함수들을 활용해서 아래에 원(<code>￦</code>)으로 정리된 <code>amounts</code>리스트를 달러(<code>$</code>) 리스트와 엔(<code>￥</code>) 리스트로 변환 시켜보세요.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">krw_to_usd</span><span class="params">(won)</span>:</span></span><br><span class="line">    dollars = (won / <span class="number">1000</span>) * <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> dollars</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">usd_to_jpy</span><span class="params">(dollars)</span>:</span></span><br><span class="line">    yen = (dollars / <span class="number">8</span>) * <span class="number">1000</span></span><br><span class="line">    <span class="keyword">return</span> yen</span><br><span class="line"></span><br><span class="line">amounts = [<span class="number">1000</span>, <span class="number">2000</span>, <span class="number">3000</span>, <span class="number">5000</span>, <span class="number">8000</span>, <span class="number">13000</span>, <span class="number">21000</span>, <span class="number">34000</span>]</span><br><span class="line">print(<span class="string">'한국 화폐: '</span> + str(amounts))</span><br><span class="line"></span><br><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> i &lt; len(amounts):</span><br><span class="line">    amounts[i] = krw_to_usd(amounts[i])</span><br><span class="line">    i += <span class="number">1</span></span><br><span class="line">print(<span class="string">'미국 화폐: '</span> + str(amounts))</span><br><span class="line"></span><br><span class="line">j = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> j &lt; len(amounts):</span><br><span class="line">    amounts[j] = usd_to_jpy(amounts[j])</span><br><span class="line">    j += <span class="number">1</span></span><br><span class="line">print(<span class="string">'일본 화폐: '</span> + str(amounts))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">한국 화폐: [1000, 2000, 3000, 5000, 8000, 13000, 21000, 34000]</span><br><span class="line">미국 화폐: [1.0, 2.0, 3.0, 5.0, 8.0, 13.0, 21.0, 34.0]</span><br><span class="line">일본 화폐: [125.0, 250.0, 375.0, 625.0, 1000.0, 1625.0, 2625.0, 4250.0]</span><br></pre></td></tr></table></figure></div><div class="article__tags"><div class="article__tags__title">tags:</div><a class="article__tag__item" href="/tags/Codeit/"><span class="fas fa-tag" aria-hidden="true"></span>Codeit</a></div></article><div class="comment__container" role="region" aria-label="comments"></div></div><footer class="footer"><p class="credit">Powered by  <a href="https://hexo.io/" rel="external noreferrer" target="_blank">Hexo</a>. Theme by  <a href="https://github.com/mulder21c" rel="external noreferrer" target="_blank">Sejin Kim</a></p></footer><div class="nav" aria-hidden="true"><nav class="nav--container" id="navigation" aria-labelledby="nav__heading"><h2 class="nav__heading" id="nav__heading">Navigation</h2><hr class="nav__seperator"><ul class="menu-list">
+    <li class="menu-item" >
+      <a href="/" >
+        home
+      </a>
+    </li>
+    <li class="menu-item" >
+      <a href="/archives" >
+        archives
+      </a>
+    </li></ul><hr class="nav__seperator"><h3 class="nav__heading--sub">Categories</h3><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Setting/">Setting</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EA%B3%B5%EB%B6%80/">공부</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%EA%B3%B5%EB%B6%80/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EA%B3%B5%EB%B6%80/Server/">Server</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EA%B3%B5%EB%B6%80/%EB%94%94%EC%9E%90%EC%9D%B8-%ED%8C%A8%ED%84%B4/">디자인 패턴</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EB%8F%84%ED%81%90%EB%A8%BC%ED%8A%B8-%EB%B2%88%EC%97%AD/">도큐먼트 번역</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%EB%8F%84%ED%81%90%EB%A8%BC%ED%8A%B8-%EB%B2%88%EC%97%AD/django-Framework/">django Framework</a></li></ul></li><li class="category-list-item"><a class="category-list-link current" href="/categories/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4/">문제풀이</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link current" href="/categories/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4/Python/">Python</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/">프로젝트</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EC%9E%A5%EA%B3%A0-%EB%B8%94%EB%A1%9C%EA%B7%B8/">장고 블로그</a></li></ul></li></ul></nav></div><script src="/js/webfontloader.js"></script><script>WebFont.load({
+  custom: {
+    families: ["Noto Sans KR", "Font Awesome"],
+    urls: ["/fonts/notosanskr/NotoSansKR.css", "/fonts/fontawesome/fontawesome.css"]
+  }
+});</script><script src="/js/script.js"></script></body></html>
