@@ -1,0 +1,82 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Python 문제풀이 (데이터 분석_단어장) - 세진이의 개발노트</title><!-- Links--><link rel="canonical" href="https://jin9173.github.io/2020/02/12/problem_solving/python/2020-02-12_py_problem_solving2"><!-- preload--><!-- Icons--><!-- open graph--><meta name="description" content="단어장 만들기 영어 강사 Coy가 학생들의 영어 단어 암기를 위해 단어장 프로그램을 만들려고 합니다. 이 프로그램은 콘솔로 영어 단어와 한국어 뜻을 받고, vocabulary.txt라는 새로운 텍스트 파일에 단어와 뜻을 정리합니다. 프로그램을 실행하면 영어 단어와 한국어 뜻을 입력할 수 있습니다. 단어-뜻을 입력할 때마다 vocabulary.txt에 단어가">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python 문제풀이 (데이터 분석_단어장)">
+<meta property="og:url" content="https://jin9173.github.io/2020/02/12/problem_solving/python/2020-02-12_py_problem_solving2/">
+<meta property="og:site_name" content="세진이의 개발노트">
+<meta property="og:description" content="단어장 만들기 영어 강사 Coy가 학생들의 영어 단어 암기를 위해 단어장 프로그램을 만들려고 합니다. 이 프로그램은 콘솔로 영어 단어와 한국어 뜻을 받고, vocabulary.txt라는 새로운 텍스트 파일에 단어와 뜻을 정리합니다. 프로그램을 실행하면 영어 단어와 한국어 뜻을 입력할 수 있습니다. 단어-뜻을 입력할 때마다 vocabulary.txt에 단어가">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-02-12T01:06:50.000Z">
+<meta property="article:modified_time" content="2020-02-12T02:05:33.426Z">
+<meta property="article:author" content="Sejin Kim">
+<meta property="article:tag" content="Codeit">
+<meta name="twitter:card" content="summary"><!-- verify website ownership--><!-- styles--><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/dracula.css"><!-- JSON LD for SEO--><script type="application/ld+json">{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Python 문제풀이 (데이터 분석_단어장)",
+  "alternativeHeadline": null,
+  "image": {
+    "@type": "imageObject",
+    "url": null,
+    "width": null,
+    "height": null
+  },
+  "genre": null,
+  "keywords": "Codeit",
+  "editor": {
+    "@type": "Person",
+    "name": "Sejin Kim"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Sejin Kim"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Sejin Kim"
+  },
+  "url": "https://jin9173.github.io/2020/02/12/problem_solving/python/2020-02-12_py_problem_solving2/",
+  "dateCreated": "2020-02-12",
+  "datePublished": "2020-02-12",
+  "articleBody": "단어장 만들기 영어 강사 Coy가 학생들의 영어 단어 암기를 위해 단어장 프로그램을 만들려고 합니다. 이 프로그램은 콘솔로 영어 단어와 한국어 뜻을 받고, vocabulary.txt라는 새로운 텍스트 파일에 단어와 뜻을 정리합니다. 프로그램을 실행하면 영어 단어와 한국어 뜻을 입력할 수 있습니다. 단어-뜻을 입력할 때마다 vocabulary.txt에 단어가 정리됩니다. 프로그램을 끝내려면, 알파벳 q를 입력하면 됩니다.      1"
+}</script><!--scripts--><meta name="generator" content="Hexo 4.2.0"></head><body class="post"><header class="header hero"><div class="hero-wrapper"><div class="gnb"><a href="/">세진이의 개발노트</a><button class="nav-toggle" type="button" aria-haspopup="true" aria-controls="navigation"><span></span><span></span><span></span>menu</button></div><h1 class="header__title">Python 문제풀이 (데이터 분석_단어장)</h1></div></header><div class="contents--container" role="main"><article class="article"><div class="article__meta"><time class="article__meta__time" datetime="2020-02-12T01:06:50.000Z"><span aria-label="posted"><span class="fas fa-calendar-day" aria-hidden="true"></span></span>2020-02-12 10:06:50</time><div class="article__meta__category"><span aria-label="category"><span class="fas fa-archive" aria-hidden="true"></span></span><a class="article__meta__category__item" href="/categories/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4/">문제풀이</a><a class="article__meta__category__item" href="/categories/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4/Python/">Python</a></div></div><div class="article__content"><h4 id="단어장-만들기"><a href="#단어장-만들기" class="headerlink" title="단어장 만들기"></a>단어장 만들기</h4><p>영어 강사 Coy가 학생들의 영어 단어 암기를 위해 단어장 프로그램을 만들려고 합니다. 이 프로그램은 콘솔로 영어 단어와 한국어 뜻을 받고, <code>vocabulary.txt</code>라는 새로운 텍스트 파일에 단어와 뜻을 정리합니다.</p>
+<p>프로그램을 실행하면 영어 단어와 한국어 뜻을 입력할 수 있습니다. 단어-뜻을 입력할 때마다 <code>vocabulary.txt</code>에 단어가 정리됩니다. 프로그램을 끝내려면, 알파벳 <code>q</code>를 입력하면 됩니다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">영어 단어를 입력하세요:</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">영어 단어를 입력하세요: cat</span><br><span class="line">한국어 뜻을 입력하세요:</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">영어 단어를 입력하세요: cat</span><br><span class="line">한국어 뜻을 입력하세요: 고양이</span><br><span class="line">영어 단어를 입력하세요:</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">영어 단어를 입력하세요: cat</span><br><span class="line">한국어 뜻을 입력하세요: 고양이</span><br><span class="line">영어 단어를 입력하세요: apple</span><br><span class="line">한국어 뜻을 입력하세요:</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">영어 단어를 입력하세요: cat</span><br><span class="line">한국어 뜻을 입력하세요: 고양이</span><br><span class="line">영어 단어를 입력하세요: apple</span><br><span class="line">한국어 뜻을 입력하세요: 사과</span><br><span class="line">영어 단어를 입력하세요:</span><br></pre></td></tr></table></figure>
+
+<p>이런식으로 단어를 8개 입력했다고 가정합시다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">영어 단어를 입력하세요: cat</span><br><span class="line">한국어 뜻을 입력하세요: 고양이</span><br><span class="line">영어 단어를 입력하세요: apple</span><br><span class="line">한국어 뜻을 입력하세요: 사과</span><br><span class="line">영어 단어를 입력하세요: church</span><br><span class="line">한국어 뜻을 입력하세요: 교회</span><br><span class="line">영어 단어를 입력하세요: temple</span><br><span class="line">한국어 뜻을 입력하세요: 절</span><br><span class="line">영어 단어를 입력하세요: wallet</span><br><span class="line">한국어 뜻을 입력하세요: 지갑</span><br><span class="line">영어 단어를 입력하세요: backpack</span><br><span class="line">한국어 뜻을 입력하세요: 책가방</span><br><span class="line">영어 단어를 입력하세요: soap</span><br><span class="line">한국어 뜻을 입력하세요: 비누</span><br><span class="line">영어 단어를 입력하세요: bicycle</span><br><span class="line">한국어 뜻을 입력하세요: 자전거</span><br><span class="line">영어 단어를 입력하세요: q</span><br></pre></td></tr></table></figure>
+
+<p>알파벳 <code>q</code>를 입력함으로써 프로그램을 종료하면 <code>vocabulary.txt</code>에 다음과 같이 단어들이 정리되어 있어야 합니다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cat: 고양이</span><br><span class="line">apple: 사과</span><br><span class="line">church: 교회</span><br><span class="line">temple: 절</span><br><span class="line">wallet: 지갑</span><br><span class="line">backpack: 책가방</span><br><span class="line">soap: 비누</span><br><span class="line">bicycle: 자전거</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h4 id="문제-풀이"><a href="#문제-풀이" class="headerlink" title="문제 풀이"></a><span style="color: red">문제 풀이</span></h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">out_file = open(<span class="string">'vocabulary.txt'</span>, <span class="string">'w'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    english_word = input(<span class="string">"영어 단어를 입력하세요: "</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> english_word == <span class="string">"q"</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    korean_word = input(<span class="string">"한국어 뜻을 입력하세요: "</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> korean_word == <span class="string">"q"</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    out_file.write(<span class="string">"%s: %s\n"</span> % (english_word, korean_word))</span><br><span class="line"></span><br><span class="line">out_file.close()</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">영어 단어를 입력하세요: cat</span><br><span class="line">한국어 뜻을 입력하세요: 고양이</span><br><span class="line">영어 단어를 입력하세요: bicycle</span><br><span class="line">한국어 뜻을 입력하세요: 자전거</span><br><span class="line">영어 단어를 입력하세요: mouse</span><br><span class="line">한국어 뜻을 입력하세요: 쥐들</span><br><span class="line">영어 단어를 입력하세요: shrimp</span><br><span class="line">한국어 뜻을 입력하세요: 작은새우</span><br><span class="line">영어 단어를 입력하세요: prawn</span><br><span class="line">한국어 뜻을 입력하세요: 대하</span><br><span class="line">영어 단어를 입력하세요: q</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cat: 고양이</span><br><span class="line">bicycle: 자전거</span><br><span class="line">mouse: 쥐들</span><br><span class="line">shrimp: 작은새우</span><br><span class="line">prawn: 대하</span><br></pre></td></tr></table></figure>
+
+</div><div class="article__tags"><div class="article__tags__title">tags:</div><a class="article__tag__item" href="/tags/Codeit/"><span class="fas fa-tag" aria-hidden="true"></span>Codeit</a></div></article><div class="comment__container" role="region" aria-label="comments"></div></div><footer class="footer"><p class="credit">Powered by  <a href="https://hexo.io/" rel="external noreferrer" target="_blank">Hexo</a>. Theme by  <a href="https://github.com/mulder21c" rel="external noreferrer" target="_blank">Sejin Kim</a></p></footer><div class="nav" aria-hidden="true"><nav class="nav--container" id="navigation" aria-labelledby="nav__heading"><h2 class="nav__heading" id="nav__heading">Navigation</h2><hr class="nav__seperator"><ul class="menu-list">
+    <li class="menu-item" >
+      <a href="/" >
+        home
+      </a>
+    </li>
+    <li class="menu-item" >
+      <a href="/archives" >
+        archives
+      </a>
+    </li></ul><hr class="nav__seperator"><h3 class="nav__heading--sub">Categories</h3><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Setting/">Setting</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EA%B3%B5%EB%B6%80/">공부</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%EA%B3%B5%EB%B6%80/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EA%B3%B5%EB%B6%80/Server/">Server</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EA%B3%B5%EB%B6%80/%EB%94%94%EC%9E%90%EC%9D%B8-%ED%8C%A8%ED%84%B4/">디자인 패턴</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EB%8F%84%ED%81%90%EB%A8%BC%ED%8A%B8-%EB%B2%88%EC%97%AD/">도큐먼트 번역</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%EB%8F%84%ED%81%90%EB%A8%BC%ED%8A%B8-%EB%B2%88%EC%97%AD/django-Framework/">django Framework</a></li></ul></li><li class="category-list-item"><a class="category-list-link current" href="/categories/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4/">문제풀이</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link current" href="/categories/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4/Python/">Python</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/">프로젝트</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EC%9E%A5%EA%B3%A0-%EB%B8%94%EB%A1%9C%EA%B7%B8/">장고 블로그</a></li></ul></li></ul></nav></div><script src="/js/webfontloader.js"></script><script>WebFont.load({
+  custom: {
+    families: ["Noto Sans KR", "Font Awesome"],
+    urls: ["/fonts/notosanskr/NotoSansKR.css", "/fonts/fontawesome/fontawesome.css"]
+  }
+});</script><script src="/js/script.js"></script></body></html>
