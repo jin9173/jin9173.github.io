@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Python 문제풀이 (데이터 분석_코딩에 빠진 닭) - 세진이의 개발노트</title><!-- Links--><link rel="canonical" href="https://jin9173.github.io/2020/02/12/problem_solving/python/2020-02-12_py_problem_solving1"><!-- preload--><!-- Icons--><!-- open graph--><meta name="description" content="코딩에 빠진 닭 밑에 나와 있는 data&#x2F;chicken.txt 파일에는 제가 운영하는 치킨집 ‘코딩에빠진닭(이하 코빠닭)’의 12월 매출이 정리되어 있습니다. :의 왼쪽에는 며칠인지, 그리고 오른쪽에는 그 날의 매출이 적혀 있습니다.      1  2  3  4  5  6">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python 문제풀이 (데이터 분석_코딩에 빠진 닭)">
+<meta property="og:url" content="https://jin9173.github.io/2020/02/12/problem_solving/python/2020-02-12_py_problem_solving1/">
+<meta property="og:site_name" content="세진이의 개발노트">
+<meta property="og:description" content="코딩에 빠진 닭 밑에 나와 있는 data&#x2F;chicken.txt 파일에는 제가 운영하는 치킨집 ‘코딩에빠진닭(이하 코빠닭)’의 12월 매출이 정리되어 있습니다. :의 왼쪽에는 며칠인지, 그리고 오른쪽에는 그 날의 매출이 적혀 있습니다.      1  2  3  4  5  6">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-02-12T00:16:50.000Z">
+<meta property="article:modified_time" content="2020-02-12T01:18:31.297Z">
+<meta property="article:author" content="Sejin Kim">
+<meta property="article:tag" content="Codeit">
+<meta name="twitter:card" content="summary"><!-- verify website ownership--><!-- styles--><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/dracula.css"><!-- JSON LD for SEO--><script type="application/ld+json">{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Python 문제풀이 (데이터 분석_코딩에 빠진 닭)",
+  "alternativeHeadline": null,
+  "image": {
+    "@type": "imageObject",
+    "url": null,
+    "width": null,
+    "height": null
+  },
+  "genre": null,
+  "keywords": "Codeit",
+  "editor": {
+    "@type": "Person",
+    "name": "Sejin Kim"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Sejin Kim"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Sejin Kim"
+  },
+  "url": "https://jin9173.github.io/2020/02/12/problem_solving/python/2020-02-12_py_problem_solving1/",
+  "dateCreated": "2020-02-12",
+  "datePublished": "2020-02-12",
+  "articleBody": "코딩에 빠진 닭 밑에 나와 있는 data/chicken.txt 파일에는 제가 운영하는 치킨집 ‘코딩에빠진닭(이하 코빠닭)’의 12월 매출이 정리되어 있습니다. :의 왼쪽에는 며칠인지, 그리고 오른쪽에는 그 날의 매출이 적혀 있습니다.      1  2  3  4  5  6"
+}</script><!--scripts--><meta name="generator" content="Hexo 4.2.0"></head><body class="post"><header class="header hero"><div class="hero-wrapper"><div class="gnb"><a href="/">세진이의 개발노트</a><button class="nav-toggle" type="button" aria-haspopup="true" aria-controls="navigation"><span></span><span></span><span></span>menu</button></div><h1 class="header__title">Python 문제풀이 (데이터 분석_코딩에 빠진 닭)</h1></div></header><div class="contents--container" role="main"><article class="article"><div class="article__meta"><time class="article__meta__time" datetime="2020-02-12T00:16:50.000Z"><span aria-label="posted"><span class="fas fa-calendar-day" aria-hidden="true"></span></span>2020-02-12 09:16:50</time><div class="article__meta__category"><span aria-label="category"><span class="fas fa-archive" aria-hidden="true"></span></span><a class="article__meta__category__item" href="/categories/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4/">문제풀이</a><a class="article__meta__category__item" href="/categories/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4/Python/">Python</a></div></div><div class="article__content"><h4 id="코딩에-빠진-닭"><a href="#코딩에-빠진-닭" class="headerlink" title="코딩에 빠진 닭"></a>코딩에 빠진 닭</h4><p>밑에 나와 있는 <code>data/chicken.txt</code> 파일에는 제가 운영하는 치킨집 ‘코딩에빠진닭(이하 코빠닭)’의 12월 매출이 정리되어 있습니다. <code>:</code>의 왼쪽에는 며칠인지, 그리고 오른쪽에는 그 날의 매출이 적혀 있습니다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">1일: 453400</span><br><span class="line">2일: 388600</span><br><span class="line">3일: 485300</span><br><span class="line">4일: 477900</span><br><span class="line">5일: 432100</span><br><span class="line">6일: 665300</span><br><span class="line">7일: 592500</span><br><span class="line">8일: 465200</span><br><span class="line">9일: 413200</span><br><span class="line">10일: 523000</span><br><span class="line">11일: 488600</span><br><span class="line">12일: 431500</span><br><span class="line">13일: 682300</span><br><span class="line">14일: 633700</span><br><span class="line">15일: 482300</span><br><span class="line">16일: 391400</span><br><span class="line">17일: 512500</span><br><span class="line">18일: 488900</span><br><span class="line">19일: 434500</span><br><span class="line">20일: 645200</span><br><span class="line">21일: 599200</span><br><span class="line">22일: 472400</span><br><span class="line">23일: 469100</span><br><span class="line">24일: 381400</span><br><span class="line">25일: 425800</span><br><span class="line">26일: 512900</span><br><span class="line">27일: 723000</span><br><span class="line">28일: 613600</span><br><span class="line">29일: 416700</span><br><span class="line">30일: 385600</span><br><span class="line">31일: 472300</span><br></pre></td></tr></table></figure>
+
+<p><code>data</code> 폴더의 <code>chicken.txt</code>를 읽어 들이고, <code>strip</code>과 <code>split</code>을 써서 12월 코빠닭의 하루 평균 매출을 계산하세요. 평균을 구하기 위해서는 총 매출을 총 일수로 나누면 됩니다. 만약 한 달이 <code>28</code>일이거나 <code>30</code>일이면, 그에 맞게 평균 매출을 구할 수 있도록 코드를 짜셔야 합니다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">in_file = open(<span class="string">'data/chicken.txt'</span>, <span class="string">'r'</span>)</span><br><span class="line"></span><br><span class="line">line_count = <span class="number">0</span></span><br><span class="line">total = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> in_file:</span><br><span class="line">    data = line.strip().split(<span class="string">": "</span>)</span><br><span class="line">    amount = int(data[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">    total += amount</span><br><span class="line"></span><br><span class="line">    <span class="comment"># day</span></span><br><span class="line">    line_count += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">print(total / line_count)</span><br><span class="line"></span><br><span class="line">in_file.close()</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">501916.12903225806</span><br></pre></td></tr></table></figure>
+
+</div><div class="article__tags"><div class="article__tags__title">tags:</div><a class="article__tag__item" href="/tags/Codeit/"><span class="fas fa-tag" aria-hidden="true"></span>Codeit</a></div></article><div class="comment__container" role="region" aria-label="comments"></div></div><footer class="footer"><p class="credit">Powered by  <a href="https://hexo.io/" rel="external noreferrer" target="_blank">Hexo</a>. Theme by  <a href="https://github.com/mulder21c" rel="external noreferrer" target="_blank">Sejin Kim</a></p></footer><div class="nav" aria-hidden="true"><nav class="nav--container" id="navigation" aria-labelledby="nav__heading"><h2 class="nav__heading" id="nav__heading">Navigation</h2><hr class="nav__seperator"><ul class="menu-list">
+    <li class="menu-item" >
+      <a href="/" >
+        home
+      </a>
+    </li>
+    <li class="menu-item" >
+      <a href="/archives" >
+        archives
+      </a>
+    </li></ul><hr class="nav__seperator"><h3 class="nav__heading--sub">Categories</h3><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Setting/">Setting</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EA%B3%B5%EB%B6%80/">공부</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%EA%B3%B5%EB%B6%80/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EA%B3%B5%EB%B6%80/Server/">Server</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EA%B3%B5%EB%B6%80/%EB%94%94%EC%9E%90%EC%9D%B8-%ED%8C%A8%ED%84%B4/">디자인 패턴</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EB%8F%84%ED%81%90%EB%A8%BC%ED%8A%B8-%EB%B2%88%EC%97%AD/">도큐먼트 번역</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%EB%8F%84%ED%81%90%EB%A8%BC%ED%8A%B8-%EB%B2%88%EC%97%AD/django-Framework/">django Framework</a></li></ul></li><li class="category-list-item"><a class="category-list-link current" href="/categories/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4/">문제풀이</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link current" href="/categories/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4/Python/">Python</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/">프로젝트</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EC%9E%A5%EA%B3%A0-%EB%B8%94%EB%A1%9C%EA%B7%B8/">장고 블로그</a></li></ul></li></ul></nav></div><script src="/js/webfontloader.js"></script><script>WebFont.load({
+  custom: {
+    families: ["Noto Sans KR", "Font Awesome"],
+    urls: ["/fonts/notosanskr/NotoSansKR.css", "/fonts/fontawesome/fontawesome.css"]
+  }
+});</script><script src="/js/script.js"></script></body></html>
