@@ -1,0 +1,65 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Python 문제풀이 (데이터 분석_단어퀴즈) - 세진이의 개발노트</title><!-- Links--><link rel="canonical" href="https://jin9173.github.io/2020/02/12/problem_solving/python/2020-02-12_py_problem_solving3"><!-- preload--><!-- Icons--><!-- open graph--><meta name="description" content="단어 퀴즈 이제 단어 암기를 위해서 학생들을 퀴즈해주는 프로그램을 만들고 싶습니다. vocabulary.txt의 첫 줄부터, 콘솔에 한국어 뜻을 알려주면 학생이 영어 단어를 입력하는 방식입니다. 맞는 답이 나오면 맞았습니다!가 출력되고 틀린 답이 나오면 아쉽습니다. 정답은 OOO입니다. 형식으로 나옵니다.      1  2  3  4">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python 문제풀이 (데이터 분석_단어퀴즈)">
+<meta property="og:url" content="https://jin9173.github.io/2020/02/12/problem_solving/python/2020-02-12_py_problem_solving3/">
+<meta property="og:site_name" content="세진이의 개발노트">
+<meta property="og:description" content="단어 퀴즈 이제 단어 암기를 위해서 학생들을 퀴즈해주는 프로그램을 만들고 싶습니다. vocabulary.txt의 첫 줄부터, 콘솔에 한국어 뜻을 알려주면 학생이 영어 단어를 입력하는 방식입니다. 맞는 답이 나오면 맞았습니다!가 출력되고 틀린 답이 나오면 아쉽습니다. 정답은 OOO입니다. 형식으로 나옵니다.      1  2  3  4">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-02-12T01:20:50.000Z">
+<meta property="article:modified_time" content="2020-02-12T03:21:36.725Z">
+<meta property="article:author" content="Sejin Kim">
+<meta property="article:tag" content="Codeit">
+<meta name="twitter:card" content="summary"><!-- verify website ownership--><!-- styles--><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/dracula.css"><!-- JSON LD for SEO--><script type="application/ld+json">{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Python 문제풀이 (데이터 분석_단어퀴즈)",
+  "alternativeHeadline": null,
+  "image": {
+    "@type": "imageObject",
+    "url": null,
+    "width": null,
+    "height": null
+  },
+  "genre": null,
+  "keywords": "Codeit",
+  "editor": {
+    "@type": "Person",
+    "name": "Sejin Kim"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Sejin Kim"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Sejin Kim"
+  },
+  "url": "https://jin9173.github.io/2020/02/12/problem_solving/python/2020-02-12_py_problem_solving3/",
+  "dateCreated": "2020-02-12",
+  "datePublished": "2020-02-12",
+  "articleBody": "단어 퀴즈 이제 단어 암기를 위해서 학생들을 퀴즈해주는 프로그램을 만들고 싶습니다. vocabulary.txt의 첫 줄부터, 콘솔에 한국어 뜻을 알려주면 학생이 영어 단어를 입력하는 방식입니다. 맞는 답이 나오면 맞았습니다!가 출력되고 틀린 답이 나오면 아쉽습니다. 정답은 OOO입니다. 형식으로 나옵니다.      1  2  3  4"
+}</script><!--scripts--><meta name="generator" content="Hexo 4.2.0"></head><body class="post"><header class="header hero"><div class="hero-wrapper"><div class="gnb"><a href="/">세진이의 개발노트</a><button class="nav-toggle" type="button" aria-haspopup="true" aria-controls="navigation"><span></span><span></span><span></span>menu</button></div><h1 class="header__title">Python 문제풀이 (데이터 분석_단어퀴즈)</h1></div></header><div class="contents--container" role="main"><article class="article"><div class="article__meta"><time class="article__meta__time" datetime="2020-02-12T01:20:50.000Z"><span aria-label="posted"><span class="fas fa-calendar-day" aria-hidden="true"></span></span>2020-02-12 10:20:50</time><div class="article__meta__category"><span aria-label="category"><span class="fas fa-archive" aria-hidden="true"></span></span><a class="article__meta__category__item" href="/categories/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4/">문제풀이</a><a class="article__meta__category__item" href="/categories/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4/Python/">Python</a></div></div><div class="article__content"><h4 id="단어-퀴즈"><a href="#단어-퀴즈" class="headerlink" title="단어 퀴즈"></a>단어 퀴즈</h4><p>이제 단어 암기를 위해서 학생들을 퀴즈해주는 프로그램을 만들고 싶습니다. <code>vocabulary.txt</code>의 첫 줄부터, 콘솔에 한국어 뜻을 알려주면 학생이 영어 단어를 입력하는 방식입니다. 맞는 답이 나오면 <code>맞았습니다!</code>가 출력되고 틀린 답이 나오면 <code>아쉽습니다. 정답은 OOO입니다.</code> 형식으로 나옵니다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">고양이: cat</span><br><span class="line">맞았습니다!</span><br><span class="line"></span><br><span class="line">사과: fruit</span><br><span class="line">아쉽습니다. 정답은 apple입니다.</span><br><span class="line"></span><br><span class="line">교회: church</span><br><span class="line">맞았습니다!</span><br><span class="line"></span><br><span class="line">절: tample</span><br><span class="line">아쉽습니다. 정답은 temple입니다.</span><br><span class="line"></span><br><span class="line">지갑: wallet</span><br><span class="line">맞았습니다!</span><br><span class="line"></span><br><span class="line">책가방: bag</span><br><span class="line">아쉽습니다. 정답은 backpack입니다.</span><br><span class="line"></span><br><span class="line">비누: soap</span><br><span class="line">맞았습니다!</span><br><span class="line"></span><br><span class="line">자전거: bycicle</span><br><span class="line">아쉽습니다. 정답은 bicycle입니다.</span><br></pre></td></tr></table></figure>
+
+<h4 id="문제-풀이"><a href="#문제-풀이" class="headerlink" title="문제 풀이"></a><span style="color: red">문제 풀이</span></h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">in_file = open(<span class="string">'vocabulary.txt'</span>, <span class="string">'r'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> in_file:</span><br><span class="line">    data = line.strip().split(<span class="string">": "</span>)</span><br><span class="line">    question = data[<span class="number">1</span>]</span><br><span class="line">    answer = data[<span class="number">0</span>]</span><br><span class="line">    </span><br><span class="line">    guess = input(<span class="string">"%s: "</span> % (question))</span><br><span class="line">    <span class="keyword">if</span> guess == answer:</span><br><span class="line">        print(<span class="string">"맞았습니다!"</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">"아쉽습니다. 정답은 %s입니다."</span> % (answer))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">고양이: cat</span><br><span class="line">맞았습니다!</span><br><span class="line">자전거: no</span><br><span class="line">아쉽습니다. 정답은 bicycle입니다.</span><br><span class="line">쥐들: mouse</span><br><span class="line">맞았습니다!</span><br><span class="line">작은새우: hello</span><br><span class="line">아쉽습니다. 정답은 shrimp입니다.</span><br><span class="line">대하: prawn</span><br><span class="line">맞았습니다!</span><br></pre></td></tr></table></figure>
+
+
+
+</div><div class="article__tags"><div class="article__tags__title">tags:</div><a class="article__tag__item" href="/tags/Codeit/"><span class="fas fa-tag" aria-hidden="true"></span>Codeit</a></div></article><div class="comment__container" role="region" aria-label="comments"></div></div><footer class="footer"><p class="credit">Powered by  <a href="https://hexo.io/" rel="external noreferrer" target="_blank">Hexo</a>. Theme by  <a href="https://github.com/mulder21c" rel="external noreferrer" target="_blank">Sejin Kim</a></p></footer><div class="nav" aria-hidden="true"><nav class="nav--container" id="navigation" aria-labelledby="nav__heading"><h2 class="nav__heading" id="nav__heading">Navigation</h2><hr class="nav__seperator"><ul class="menu-list">
+    <li class="menu-item" >
+      <a href="/" >
+        home
+      </a>
+    </li>
+    <li class="menu-item" >
+      <a href="/archives" >
+        archives
+      </a>
+    </li></ul><hr class="nav__seperator"><h3 class="nav__heading--sub">Categories</h3><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Setting/">Setting</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EA%B3%B5%EB%B6%80/">공부</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%EA%B3%B5%EB%B6%80/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EA%B3%B5%EB%B6%80/Server/">Server</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EA%B3%B5%EB%B6%80/%EB%94%94%EC%9E%90%EC%9D%B8-%ED%8C%A8%ED%84%B4/">디자인 패턴</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EB%8F%84%ED%81%90%EB%A8%BC%ED%8A%B8-%EB%B2%88%EC%97%AD/">도큐먼트 번역</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%EB%8F%84%ED%81%90%EB%A8%BC%ED%8A%B8-%EB%B2%88%EC%97%AD/django-Framework/">django Framework</a></li></ul></li><li class="category-list-item"><a class="category-list-link current" href="/categories/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4/">문제풀이</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link current" href="/categories/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4/Python/">Python</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/">프로젝트</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EC%9E%A5%EA%B3%A0-%EB%B8%94%EB%A1%9C%EA%B7%B8/">장고 블로그</a></li></ul></li></ul></nav></div><script src="/js/webfontloader.js"></script><script>WebFont.load({
+  custom: {
+    families: ["Noto Sans KR", "Font Awesome"],
+    urls: ["/fonts/notosanskr/NotoSansKR.css", "/fonts/fontawesome/fontawesome.css"]
+  }
+});</script><script src="/js/script.js"></script></body></html>
