@@ -1,0 +1,76 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Python 문제풀이 (#맞팔해요) - 세진이의 개발노트</title><!-- Links--><link rel="canonical" href="https://jin9173.github.io/2020/02/14/problem_solving/python/2020-02-14_py_problem_solving2"><!-- preload--><!-- Icons--><!-- open graph--><meta name="description" content="맞팔해요 코드잇에서 강의를 듣고 인스타그램에 취직한 Jane은 User 클래스에 “팔로우” 기능을 추가하라는 지시를 받았습니다. 팔로우 기능은 크게 2개의 동작을 해야 합니다.  “내가 팔로우하는 사람” 목록에 그 사람을 추가하는 동작과 상대방의 “나를 팔로우하는 사람” 목록에 나를 추가하는 동작  팔로우 기능은 follow 메소드로 구현하려고 하는데요.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python 문제풀이 (#맞팔해요)">
+<meta property="og:url" content="https://jin9173.github.io/2020/02/14/problem_solving/python/2020-02-14_py_problem_solving2/">
+<meta property="og:site_name" content="세진이의 개발노트">
+<meta property="og:description" content="맞팔해요 코드잇에서 강의를 듣고 인스타그램에 취직한 Jane은 User 클래스에 “팔로우” 기능을 추가하라는 지시를 받았습니다. 팔로우 기능은 크게 2개의 동작을 해야 합니다.  “내가 팔로우하는 사람” 목록에 그 사람을 추가하는 동작과 상대방의 “나를 팔로우하는 사람” 목록에 나를 추가하는 동작  팔로우 기능은 follow 메소드로 구현하려고 하는데요.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-02-14T05:53:00.000Z">
+<meta property="article:modified_time" content="2020-02-14T06:07:24.105Z">
+<meta property="article:author" content="Sejin Kim">
+<meta property="article:tag" content="Codeit">
+<meta name="twitter:card" content="summary"><!-- verify website ownership--><!-- styles--><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/dracula.css"><!-- JSON LD for SEO--><script type="application/ld+json">{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Python 문제풀이 (#맞팔해요)",
+  "alternativeHeadline": null,
+  "image": {
+    "@type": "imageObject",
+    "url": null,
+    "width": null,
+    "height": null
+  },
+  "genre": null,
+  "keywords": "Codeit",
+  "editor": {
+    "@type": "Person",
+    "name": "Sejin Kim"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Sejin Kim"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Sejin Kim"
+  },
+  "url": "https://jin9173.github.io/2020/02/14/problem_solving/python/2020-02-14_py_problem_solving2/",
+  "dateCreated": "2020-02-14",
+  "datePublished": "2020-02-14",
+  "articleBody": "맞팔해요 코드잇에서 강의를 듣고 인스타그램에 취직한 Jane은 User 클래스에 “팔로우” 기능을 추가하라는 지시를 받았습니다. 팔로우 기능은 크게 2개의 동작을 해야 합니다.  “내가 팔로우하는 사람” 목록에 그 사람을 추가하는 동작과 상대방의 “나를 팔로우하는 사람” 목록에 나를 추가하는 동작  팔로우 기능은 follow 메소드로 구현하려고 하는데요.     팔로우 기능을 만드는 김에   follow 메소드 말고도 유저가 팔로우하는 사람 수를 알려주는 num_following 메소드와 유저를 팔로우하는 사람 수를 알려주는 nu"
+}</script><!--scripts--><meta name="generator" content="Hexo 4.2.0"></head><body class="post"><header class="header hero"><div class="hero-wrapper"><div class="gnb"><a href="/">세진이의 개발노트</a><button class="nav-toggle" type="button" aria-haspopup="true" aria-controls="navigation"><span></span><span></span><span></span>menu</button></div><h1 class="header__title">Python 문제풀이 (#맞팔해요)</h1></div></header><div class="contents--container" role="main"><article class="article"><div class="article__meta"><time class="article__meta__time" datetime="2020-02-14T05:53:00.000Z"><span aria-label="posted"><span class="fas fa-calendar-day" aria-hidden="true"></span></span>2020-02-14 14:53:00</time><div class="article__meta__category"><span aria-label="category"><span class="fas fa-archive" aria-hidden="true"></span></span><a class="article__meta__category__item" href="/categories/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4/">문제풀이</a><a class="article__meta__category__item" href="/categories/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4/Python/">Python</a></div></div><div class="article__content"><h4 id="맞팔해요"><a href="#맞팔해요" class="headerlink" title="맞팔해요"></a>맞팔해요</h4><p>코드잇에서 강의를 듣고 인스타그램에 취직한 Jane은 <code>User</code> 클래스에 “팔로우” 기능을 추가하라는 지시를 받았습니다.</p>
+<p>팔로우 기능은 크게 2개의 동작을 해야 합니다.</p>
+<ol>
+<li>“내가 팔로우하는 사람” 목록에 그 사람을 추가하는 동작과</li>
+<li>상대방의 “나를 팔로우하는 사람” 목록에 나를 추가하는 동작</li>
+</ol>
+<p>팔로우 기능은 <code>follow</code> 메소드로 구현하려고 하는데요.     팔로우 기능을 만드는 김에</p>
+<ol>
+<li><code>follow</code> 메소드 말고도</li>
+<li>유저가 팔로우하는 사람 수를 알려주는 <code>num_following</code> 메소드와</li>
+<li>유저를 팔로우하는 사람 수를 알려주는 <code>num_followers</code> 메소드도</li>
+</ol>
+<p>추가해봅시다.</p>
+<p><code>User</code> 클래스에 이 메소드들을 모두 추가하고 나서 코드를 실행하면 아래와 같은 실행 결과가 나와야 합니다.</p>
+<h3 id="실행-결과"><a href="#실행-결과" class="headerlink" title="실행 결과"></a>실행 결과</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Young 2 2</span><br><span class="line">Yoonsoo 1 3</span><br><span class="line">Taeho 2 0</span><br><span class="line">Lisa 1 1</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h4 id="문제-풀이"><a href="#문제-풀이" class="headerlink" title="문제 풀이"></a><span style="color: red">문제 풀이</span></h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span>:</span></span><br><span class="line">    <span class="comment"># 인스턴스 변수 설정</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, email, password)</span>:</span></span><br><span class="line">        self.name = name</span><br><span class="line">        self.email = email</span><br><span class="line">        self.password = password</span><br><span class="line"></span><br><span class="line">        self.following_list = []    <span class="comment"># 이 유저가 팔로우하는 유저 리스트</span></span><br><span class="line">        self.followers_list = []    <span class="comment"># 이 유저를 팔로우하는 유저 리스트</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 팔로우</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">follow</span><span class="params">(self, another_user)</span>:</span></span><br><span class="line">        self.following_list.append(another_user.name)</span><br><span class="line">        another_user.followers_list.append(self)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 내가 몇 명을 팔로우하는지 리턴</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">num_following</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> len(self.following_list)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 나를 몇 명이 팔로우하는지 리턴</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">num_followers</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> len(self.followers_list)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 유저들 생성</span></span><br><span class="line">user1 = User(<span class="string">"Young"</span>, <span class="string">"young@codeit.kr"</span>, <span class="string">"123456"</span>)</span><br><span class="line">user2 = User(<span class="string">"Yoonsoo"</span>, <span class="string">"yoonsoo@codeit.kr"</span>, <span class="string">"abcdef"</span>)</span><br><span class="line">user3 = User(<span class="string">"Taeho"</span>, <span class="string">"taeho@codeit.kr"</span>, <span class="string">"123abc"</span>)</span><br><span class="line">user4 = User(<span class="string">"Lisa"</span>, <span class="string">"lisa@codeit.kr"</span>, <span class="string">"abc123"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 유저마다 서로 관심 있는 유저를 팔로우</span></span><br><span class="line">user1.follow(user2)</span><br><span class="line">user1.follow(user3)</span><br><span class="line">user2.follow(user1)</span><br><span class="line">user2.follow(user3)</span><br><span class="line">user2.follow(user4)</span><br><span class="line">user4.follow(user1)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 유저 이름, 자신의 팔로워 수, 자신이 팔로우하는 사람 수를 출력합니다</span></span><br><span class="line">print(user1.name, user1.num_followers(), user1.num_following())</span><br><span class="line">print(user2.name, user2.num_followers(), user2.num_following())</span><br><span class="line">print(user3.name, user3.num_followers(), user3.num_following())</span><br><span class="line">print(user4.name, user4.num_followers(), user4.num_following())</span><br></pre></td></tr></table></figure>
+
+</div><div class="article__tags"><div class="article__tags__title">tags:</div><a class="article__tag__item" href="/tags/Codeit/"><span class="fas fa-tag" aria-hidden="true"></span>Codeit</a></div></article><div class="comment__container" role="region" aria-label="comments"></div></div><footer class="footer"><p class="credit">Powered by  <a href="https://hexo.io/" rel="external noreferrer" target="_blank">Hexo</a>. Theme by  <a href="https://github.com/mulder21c" rel="external noreferrer" target="_blank">Sejin Kim</a></p></footer><div class="nav" aria-hidden="true"><nav class="nav--container" id="navigation" aria-labelledby="nav__heading"><h2 class="nav__heading" id="nav__heading">Navigation</h2><hr class="nav__seperator"><ul class="menu-list">
+    <li class="menu-item" >
+      <a href="/" >
+        home
+      </a>
+    </li>
+    <li class="menu-item" >
+      <a href="/archives" >
+        archives
+      </a>
+    </li></ul><hr class="nav__seperator"><h3 class="nav__heading--sub">Categories</h3><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Setting/">Setting</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EA%B3%B5%EB%B6%80/">공부</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%EA%B3%B5%EB%B6%80/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EA%B3%B5%EB%B6%80/Server/">Server</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EA%B3%B5%EB%B6%80/%EB%94%94%EC%9E%90%EC%9D%B8-%ED%8C%A8%ED%84%B4/">디자인 패턴</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EB%8F%84%ED%81%90%EB%A8%BC%ED%8A%B8-%EB%B2%88%EC%97%AD/">도큐먼트 번역</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%EB%8F%84%ED%81%90%EB%A8%BC%ED%8A%B8-%EB%B2%88%EC%97%AD/django-Framework/">django Framework</a></li></ul></li><li class="category-list-item"><a class="category-list-link current" href="/categories/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4/">문제풀이</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link current" href="/categories/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4/Python/">Python</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/">프로젝트</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EC%9E%A5%EA%B3%A0-%EB%B8%94%EB%A1%9C%EA%B7%B8/">장고 블로그</a></li></ul></li></ul></nav></div><script src="/js/webfontloader.js"></script><script>WebFont.load({
+  custom: {
+    families: ["Noto Sans KR", "Font Awesome"],
+    urls: ["/fonts/notosanskr/NotoSansKR.css", "/fonts/fontawesome/fontawesome.css"]
+  }
+});</script><script src="/js/script.js"></script></body></html>
