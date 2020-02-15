@@ -1,0 +1,155 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>소프트웨어 생명주기 - 세진이의 개발노트</title><!-- Links--><link rel="canonical" href="https://jin9173.github.io/2020/02/15/study/computer_science/software_design/2020-02-15_requirements_software_lifecycle"><!-- preload--><!-- Icons--><!-- open graph--><meta name="description" content="소프트웨어 생명주기 (Software Life Cycle) : 소프트웨어 개발 방법론에 바탕하여 소프트웨어를 개발하기 위해 정의, 운용, 유지보수 등의 과정을 각 단계별로 나눈 것  소프트웨어 개발단계와 각 단계별 주요활동, 활동의 결과에 대한 산출물로 표현 (&#x3D;소프트웨어 수명주기)    소프트웨어 생명 주기 모형 : 소프트웨어 생명주기를 표현하는 형태 (">
+<meta property="og:type" content="article">
+<meta property="og:title" content="소프트웨어 생명주기">
+<meta property="og:url" content="https://jin9173.github.io/2020/02/15/study/computer_science/software_design/2020-02-15_requirements_software_lifecycle/">
+<meta property="og:site_name" content="세진이의 개발노트">
+<meta property="og:description" content="소프트웨어 생명주기 (Software Life Cycle) : 소프트웨어 개발 방법론에 바탕하여 소프트웨어를 개발하기 위해 정의, 운용, 유지보수 등의 과정을 각 단계별로 나눈 것  소프트웨어 개발단계와 각 단계별 주요활동, 활동의 결과에 대한 산출물로 표현 (&#x3D;소프트웨어 수명주기)    소프트웨어 생명 주기 모형 : 소프트웨어 생명주기를 표현하는 형태 (">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://t1.daumcdn.net/cfile/tistory/1916E0114CAF274E2F">
+<meta property="og:image" content="https://lh3.googleusercontent.com/proxy/kpBYMPVy20jZWwpoz2tqOn9oDiS5cfjYF7g6qT20X92NML0PNY3WOsqRaBbNVn5uj-YIOBX_sAfNomKhGqKti2Rx8Qsey4sg1lUm5klQnWtnVRc1OYMBswRLAcPXAHyVvOmf0_LS">
+<meta property="og:image" content="https://t1.daumcdn.net/thumb/R720x0/?fname=http://t1.daumcdn.net/brunch/service/user/ZKB/image/-2neJY9x-y6dadscnJL5266IahA.jpg">
+<meta property="og:image" content="https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=http%253A%252F%252Fcfile21.uf.tistory.com%252Fimage%252F214EE04E58A2A65C155D51">
+<meta property="article:published_time" content="2020-02-14T20:33:50.000Z">
+<meta property="article:modified_time" content="2020-02-15T22:46:17.184Z">
+<meta property="article:author" content="Sejin Kim">
+<meta property="article:tag" content="폭포수 모형">
+<meta property="article:tag" content="프로토타입 모형">
+<meta property="article:tag" content="나선형 모형">
+<meta property="article:tag" content="애자일 모형">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://t1.daumcdn.net/cfile/tistory/1916E0114CAF274E2F"><!-- verify website ownership--><!-- styles--><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/dracula.css"><!-- JSON LD for SEO--><script type="application/ld+json">{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "소프트웨어 생명주기",
+  "alternativeHeadline": null,
+  "image": {
+    "@type": "imageObject",
+    "url": null,
+    "width": null,
+    "height": null
+  },
+  "genre": null,
+  "keywords": "폭포수 모형,프로토타입 모형,나선형 모형,애자일 모형",
+  "editor": {
+    "@type": "Person",
+    "name": "Sejin Kim"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Sejin Kim"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Sejin Kim"
+  },
+  "url": "https://jin9173.github.io/2020/02/15/study/computer_science/software_design/2020-02-15_requirements_software_lifecycle/",
+  "dateCreated": "2020-02-15",
+  "datePublished": "2020-02-15",
+  "articleBody": "소프트웨어 생명주기 (Software Life Cycle) : 소프트웨어 개발 방법론에 바탕하여 소프트웨어를 개발하기 위해 정의, 운용, 유지보수 등의 과정을 각 단계별로 나눈 것  소프트웨어 개발단계와 각 단계별 주요활동, 활동의 결과에 대한 산출물로 표현 (=소프트웨어 수명주기)    소프트웨어 생명 주기 모형 : 소프트웨어 생명주기를 표현하는 형태 (=소프트"
+}</script><!--scripts--><meta name="generator" content="Hexo 4.2.0"></head><body class="post"><header class="header hero"><div class="hero-wrapper"><div class="gnb"><a href="/">세진이의 개발노트</a><button class="nav-toggle" type="button" aria-haspopup="true" aria-controls="navigation"><span></span><span></span><span></span>menu</button></div><h1 class="header__title">소프트웨어 생명주기</h1></div></header><div class="contents--container" role="main"><article class="article"><div class="article__meta"><time class="article__meta__time" datetime="2020-02-14T20:33:50.000Z"><span aria-label="posted"><span class="fas fa-calendar-day" aria-hidden="true"></span></span>2020-02-15 05:33:50</time><div class="article__meta__category"><span aria-label="category"><span class="fas fa-archive" aria-hidden="true"></span></span><a class="article__meta__category__item" href="/categories/%EA%B3%B5%EB%B6%80/">공부</a><a class="article__meta__category__item" href="/categories/%EA%B3%B5%EB%B6%80/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B3%B5%ED%95%99/">컴퓨터 공학</a><a class="article__meta__category__item" href="/categories/%EA%B3%B5%EB%B6%80/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B3%B5%ED%95%99/%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4-%EC%84%A4%EA%B3%84/">소프트웨어 설계</a><a class="article__meta__category__item" href="/categories/%EA%B3%B5%EB%B6%80/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B3%B5%ED%95%99/%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4-%EC%84%A4%EA%B3%84/%EC%9A%94%EA%B5%AC%EC%82%AC%ED%95%AD-%ED%99%95%EC%9D%B8/">요구사항 확인</a></div></div><div class="article__content"><h2 id="소프트웨어-생명주기-Software-Life-Cycle"><a href="#소프트웨어-생명주기-Software-Life-Cycle" class="headerlink" title="소프트웨어 생명주기 (Software Life Cycle)"></a>소프트웨어 생명주기 (Software Life Cycle)</h2><p>: 소프트웨어 개발 방법론에 바탕하여 소프트웨어를 개발하기 위해 정의, 운용, 유지보수 등의 과정을 각 단계별로 나눈 것</p>
+<p><span style="color: teal">소프트웨어 개발단계와 각 단계별 주요활동, 활동의 결과에 대한 산출물로 표현 (=소프트웨어 수명주기)</span></p>
+<h5 id="소프트웨어-생명-주기-모형"><a href="#소프트웨어-생명-주기-모형" class="headerlink" title="소프트웨어 생명 주기 모형"></a>소프트웨어 생명 주기 모형</h5><p>: 소프트웨어 생명주기를 표현하는 형태 (=소프트웨어 프로세스 모형, 소프트웨어 공학 패러다임)</p>
+<br>
+
+<h3 id="1-폭포수-모형-Waterfall-Model"><a href="#1-폭포수-모형-Waterfall-Model" class="headerlink" title="1. 폭포수 모형 (Waterfall Model)"></a>1. 폭포수 모형 (Waterfall Model)</h3><p>: <strong>고전적 생명주기 모형</strong>으로써 각 단계를 확실히 매듭짓고 그 결과를 철저하게 검토하여 승인 과정을 거친 후에 다음 단계를 진행하는 개발 방법론 (한번 떨어진 물은 거슬러 올라갈 수 없듯이 이전 단계로 돌아갈 수 없다)</p>
+<p><strong>메뉴얼 작성</strong> (프로그램들의 사용과 운영에 대한 내용이 기술되어 있는 문서)</p>
+<p>: 각 단계들은 병행하여 수행되지 않는다</p>
+<ol>
+<li>타당성 검토</li>
+<li>계획</li>
+<li>요구분석</li>
+<li>설계</li>
+<li>구현(코딩)</li>
+<li>시험(검사)</li>
+<li>유지보수</li>
+</ol>
+<br>
+
+<h3 id="2-프로토타입-모형-Prototype-Model-원형-모형"><a href="#2-프로토타입-모형-Prototype-Model-원형-모형" class="headerlink" title="2. 프로토타입 모형 (Prototype Model: 원형 모형)"></a>2. 프로토타입 모형 (Prototype Model: 원형 모형)</h3><p>: 사용자의 요구사항을 파악하기 위해 실제 개발될 소프트우에ㅓ에 대한 <strong>견본품</strong>을 만들어 최종 결과물을 예측하는 모형 (<u>인터페이스에 중점을 두어 개발</u>) <span style="color: red">폭포수 모형의 단점 보완</span></p>
+<p><img src="https://t1.daumcdn.net/cfile/tistory/1916E0114CAF274E2F" alt=""></p>
+<br>
+
+<h3 id="3-나선형-모형-Spiral-Model-점진적-모형-보헴-Boehm"><a href="#3-나선형-모형-Spiral-Model-점진적-모형-보헴-Boehm" class="headerlink" title="3. 나선형 모형 (Spiral Model: 점진적 모형) - 보헴(Boehm)"></a>3. 나선형 모형 (Spiral Model: 점진적 모형) - 보헴(Boehm)</h3><p>: 폭포수 모형과 프로토타입 모형의 장점에 <strong>위험 분석 기능</strong>을 추가한 모형</p>
+<p><span style="color: teal">나선을 따라 돌듯이 여러 번의 소프트웨어 개발 과정을 거처 점진적으로 완벽한 최종 소프트웨어를 개발 (=점진적 모형)</span></p>
+<p><strong>목적</strong>: 소프트웨어를 개발하면서 발생할 수 있는 <u>위험</u>을 관리하고 최소화</p>
+<p><img src="https://lh3.googleusercontent.com/proxy/kpBYMPVy20jZWwpoz2tqOn9oDiS5cfjYF7g6qT20X92NML0PNY3WOsqRaBbNVn5uj-YIOBX_sAfNomKhGqKti2Rx8Qsey4sg1lUm5klQnWtnVRc1OYMBswRLAcPXAHyVvOmf0_LS" alt=""></p>
+<p><span style="color: red">점진적으로 개발과정이 반복되므로 누락되거나 추가된 요구사항을 첨가할 수 있고, <strong>정밀</strong>하며, <strong>유지보수 과정이 필요없다</strong>.</span></p>
+<br>
+
+<h3 id="4-애자일-모형-Agile-Model"><a href="#4-애자일-모형-Agile-Model" class="headerlink" title="4. 애자일 모형 (Agile Model)"></a>4. 애자일 모형 (Agile Model)</h3><p>: 고객의 요구사항 변화에 유연하게 대응할 수 있도록 일정한 주기를 반복하면서 민첩하게 개발과정을 진행 (<strong>고객과의 소통에 초점을 맞춤</strong>)</p>
+<p><img src="https://t1.daumcdn.net/thumb/R720x0/?fname=http://t1.daumcdn.net/brunch/service/user/ZKB/image/-2neJY9x-y6dadscnJL5266IahA.jpg" alt=""></p>
+<ul>
+<li><strong>스프린트</strong>(Sprint), <strong>이터레이션</strong>(Iteration)이라는 짧은 개발 주기를 반복하며, 반복되는 주기마다 만들어지는 결과물에 대한 고객의 평가와 요구를 적극 수용</li>
+<li><u>고객이</u> <strong>요구사항에 우선순위를 부여</strong>하여 개발 작업을 진행 </li>
+<li>소규모 프로젝트, 숙달된 개발자, 급변하는 요구사항에 적합</li>
+<li>애자일 소프트웨어 개발 모형: 스크럼(Scrum), XP(eXtreme Programming), 칸반(Kanban), Lean, 크리스탈(Crystal), ASD(Adaptive Software Development), FDD(Feature Driven Development), DSDM(Dynamic System Development Method), DAD(Disciplined Agile Delivery)</li>
+</ul>
+<p><img src="https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=http%3A%2F%2Fcfile21.uf.tistory.com%2Fimage%2F214EE04E58A2A65C155D51" alt=""></p>
+<h4 id="애자일-SW-개발-선언문-Agile-Manifesto"><a href="#애자일-SW-개발-선언문-Agile-Manifesto" class="headerlink" title="애자일 SW 개발 선언문 (Agile Manifesto)"></a>애자일 SW 개발 선언문 (Agile Manifesto)</h4><p>: 애자일 개발 철학(4가지 핵심 가치)과 애자일 개발을 실무에 적용할 때 기준이 되는 12가지 실행 지침</p>
+<h5 id="애자일-개발-4가지-핵심-가치"><a href="#애자일-개발-4가지-핵심-가치" class="headerlink" title="애자일 개발 4가지 핵심 가치"></a>애자일 개발 4가지 핵심 가치</h5><ol>
+<li>프로세스와 도구보다는 개인과 상호작용에 더 가치를 둔다.</li>
+<li>방대한 문서보다는 실행되는 SW에 더 가치를 둔다.</li>
+<li>계약 협상보다는 고객과 협업에 더 가치를 둔다.</li>
+<li>계획을 따르기 보다는 변화에 반응하는 것에 더 가치를 둔다.</li>
+</ol>
+<h5 id="애자일-개발-12가지-실행-지침"><a href="#애자일-개발-12가지-실행-지침" class="headerlink" title="애자일 개발 12가지 실행 지침"></a>애자일 개발 12가지 실행 지침</h5><ol>
+<li>유용한 소프트웨어를 빠르고 지속적으로 제공하여 고객을 만족시킨다.</li>
+<li>개발 막바지라도 요구사항 변경을 적극 수용한다.</li>
+<li>몇 개월이 아닌 몇 주 단위로 실행되는 소프트웨어를 제공한다.</li>
+<li>고객과 개발자가 프로젝트 기간에 함께 일한다.</li>
+<li>개발에 대한 참여 의지가 확실한 사람들로 팀을 구성하고 필요한 개발 환경과 지원을 제공하며, 일을 잘 끝낼 수 있도록 신뢰한다.</li>
+<li>같은 사무실에서 얼굴을 맞대고 의견을 나눈다.</li>
+<li>개발의 진척도를 확인하는 1차 기준은 작동하는 소프트웨어이다.</li>
+<li>지속 가능한 개발을 장려하고 일정한 속도로 개발을 진행한다.</li>
+<li>기술적 우수성과 좋은 설계에 지속적인 관심을 기울이면 민첩성이 향상된다.</li>
+<li>단순화를 추구한다.</li>
+<li>최상의 아키텍처, 명확한 요구사항, 최상의 설계는 자기 스스로 일을 주도하는 조직적인 팀으로부터 나온다.</li>
+<li>더 효과적인 팀이 될 수 있는 방안을 정기적으로 깊이 고민하고 그에 따라 팀의 행동을 조정한다.</li>
+</ol>
+<br>
+
+<h3 id="폭포수-모형-VS-애자일"><a href="#폭포수-모형-VS-애자일" class="headerlink" title="폭포수 모형 VS 애자일"></a><span style="color: red">폭포수 모형 VS 애자일</span></h3><table>
+<thead>
+<tr>
+<th align="left">구분</th>
+<th>폭포수 모형</th>
+<th>애자일</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">새로운 요구사항 반영</td>
+<td>어려움</td>
+<td>지속적으로 반영</td>
+</tr>
+<tr>
+<td align="left">고객과의 의사소통</td>
+<td>적음</td>
+<td>지속적임</td>
+</tr>
+<tr>
+<td align="left">테스트</td>
+<td>마지막에 모든 기능을 테스트</td>
+<td>반복되는 일정주기가 끝날 때마다 테스트</td>
+</tr>
+<tr>
+<td align="left">개발 중심</td>
+<td>계획, 문서(메뉴얼)</td>
+<td>고객</td>
+</tr>
+</tbody></table>
+</div><div class="article__tags"><div class="article__tags__title">tags:</div><a class="article__tag__item" href="/tags/%ED%8F%AD%ED%8F%AC%EC%88%98-%EB%AA%A8%ED%98%95/"><span class="fas fa-tag" aria-hidden="true"></span>폭포수 모형</a><a class="article__tag__item" href="/tags/%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85-%EB%AA%A8%ED%98%95/"><span class="fas fa-tag" aria-hidden="true"></span>프로토타입 모형</a><a class="article__tag__item" href="/tags/%EB%82%98%EC%84%A0%ED%98%95-%EB%AA%A8%ED%98%95/"><span class="fas fa-tag" aria-hidden="true"></span>나선형 모형</a><a class="article__tag__item" href="/tags/%EC%95%A0%EC%9E%90%EC%9D%BC-%EB%AA%A8%ED%98%95/"><span class="fas fa-tag" aria-hidden="true"></span>애자일 모형</a></div></article><div class="comment__container" role="region" aria-label="comments"></div></div><footer class="footer"><p class="credit">Powered by  <a href="https://hexo.io/" rel="external noreferrer" target="_blank">Hexo</a>. Theme by  <a href="https://github.com/mulder21c" rel="external noreferrer" target="_blank">Sejin Kim</a></p></footer><div class="nav" aria-hidden="true"><nav class="nav--container" id="navigation" aria-labelledby="nav__heading"><h2 class="nav__heading" id="nav__heading">Navigation</h2><hr class="nav__seperator"><ul class="menu-list">
+    <li class="menu-item" >
+      <a href="/" >
+        home
+      </a>
+    </li>
+    <li class="menu-item" >
+      <a href="/archives" >
+        archives
+      </a>
+    </li></ul><hr class="nav__seperator"><h3 class="nav__heading--sub">Categories</h3><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Setting/">Setting</a></li><li class="category-list-item"><a class="category-list-link current" href="/categories/%EA%B3%B5%EB%B6%80/">공부</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%EA%B3%B5%EB%B6%80/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EA%B3%B5%EB%B6%80/Server/">Server</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EA%B3%B5%EB%B6%80/%EB%94%94%EC%9E%90%EC%9D%B8-%ED%8C%A8%ED%84%B4/">디자인 패턴</a></li><li class="category-list-item"><a class="category-list-link current" href="/categories/%EA%B3%B5%EB%B6%80/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B3%B5%ED%95%99/">컴퓨터 공학</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link current" href="/categories/%EA%B3%B5%EB%B6%80/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B3%B5%ED%95%99/%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4-%EC%84%A4%EA%B3%84/">소프트웨어 설계</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link current" href="/categories/%EA%B3%B5%EB%B6%80/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B3%B5%ED%95%99/%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4-%EC%84%A4%EA%B3%84/%EC%9A%94%EA%B5%AC%EC%82%AC%ED%95%AD-%ED%99%95%EC%9D%B8/">요구사항 확인</a></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EB%8F%84%ED%81%90%EB%A8%BC%ED%8A%B8-%EB%B2%88%EC%97%AD/">도큐먼트 번역</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%EB%8F%84%ED%81%90%EB%A8%BC%ED%8A%B8-%EB%B2%88%EC%97%AD/django-Framework/">django Framework</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4/">문제풀이</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4/Python/">Python</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/">프로젝트</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EC%9E%A5%EA%B3%A0-%EB%B8%94%EB%A1%9C%EA%B7%B8/">장고 블로그</a></li></ul></li></ul></nav></div><script src="/js/webfontloader.js"></script><script>WebFont.load({
+  custom: {
+    families: ["Noto Sans KR", "Font Awesome"],
+    urls: ["/fonts/notosanskr/NotoSansKR.css", "/fonts/fontawesome/fontawesome.css"]
+  }
+});</script><script src="/js/script.js"></script></body></html>
