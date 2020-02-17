@@ -1,0 +1,122 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>스크럼(Scrum) 기법 - 세진이의 개발노트</title><!-- Links--><link rel="canonical" href="https://jin9173.github.io/2020/02/16/study/computer_science/software_design/2020-02-16_scrum"><!-- preload--><!-- Icons--><!-- open graph--><meta name="description" content="소프트웨어 생명주기    소프트웨어 생명주기: 개발단계, 단계별 주요활동, 활동의 결과를 산출물로 표현   소프트웨어 생명주기 모형   폭포수 모형(고전적): 단계가 끝난 후 다음 단계 진행 (각 단계들은 병행하여 수행X) [타당성 검토 → 계획→ 요구분석→ 설계→ 구현(코딩)→ 시험(검사)→ 유지보수]   프로토타입 모형: 견본품을 바탕으로 최종 결과물">
+<meta property="og:type" content="article">
+<meta property="og:title" content="스크럼(Scrum) 기법">
+<meta property="og:url" content="https://jin9173.github.io/2020/02/16/study/computer_science/software_design/2020-02-16_scrum/">
+<meta property="og:site_name" content="세진이의 개발노트">
+<meta property="og:description" content="소프트웨어 생명주기    소프트웨어 생명주기: 개발단계, 단계별 주요활동, 활동의 결과를 산출물로 표현   소프트웨어 생명주기 모형   폭포수 모형(고전적): 단계가 끝난 후 다음 단계 진행 (각 단계들은 병행하여 수행X) [타당성 검토 → 계획→ 요구분석→ 설계→ 구현(코딩)→ 시험(검사)→ 유지보수]   프로토타입 모형: 견본품을 바탕으로 최종 결과물">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=http%253A%252F%252Fcfile21.uf.tistory.com%252Fimage%252F214EE04E58A2A65C155D51">
+<meta property="article:published_time" content="2020-02-16T01:12:50.000Z">
+<meta property="article:modified_time" content="2020-02-17T01:28:29.667Z">
+<meta property="article:author" content="Sejin Kim">
+<meta property="article:tag" content="소프트웨어 생명주기">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=http%253A%252F%252Fcfile21.uf.tistory.com%252Fimage%252F214EE04E58A2A65C155D51"><!-- verify website ownership--><!-- styles--><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/dracula.css"><!-- JSON LD for SEO--><script type="application/ld+json">{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "스크럼(Scrum) 기법",
+  "alternativeHeadline": null,
+  "image": {
+    "@type": "imageObject",
+    "url": null,
+    "width": null,
+    "height": null
+  },
+  "genre": null,
+  "keywords": "소프트웨어 생명주기",
+  "editor": {
+    "@type": "Person",
+    "name": "Sejin Kim"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Sejin Kim"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Sejin Kim"
+  },
+  "url": "https://jin9173.github.io/2020/02/16/study/computer_science/software_design/2020-02-16_scrum/",
+  "dateCreated": "2020-02-16",
+  "datePublished": "2020-02-16",
+  "articleBody": "소프트웨어 생명주기    소프트웨어 생명주기: 개발단계, 단계별 주요활동, 활동의 결과를 산출물로 표현   소프트웨어 생명주기 모형   폭포수 모형(고전적): 단계가 끝난 후 다음 단계 진행 (각 단계들은 병행하여 수행X) [타당성 검토 → 계획→ 요구분석→ 설계→ 구현(코딩)→ 시험(검사)→ 유지보수]   프로토타입 모형: 견본품을 바탕으로 최종 결과물 예측 (폭포수 모형의 요구분석 단계 보완) [요구수집→ 빠른 설계→ 프로토타입 구축→ 고객 평가→ 프로토타입 조정→ 구현]   나선형 모형"
+}</script><!--scripts--><meta name="generator" content="Hexo 4.2.0"></head><body class="post"><header class="header hero"><div class="hero-wrapper"><div class="gnb"><a href="/">세진이의 개발노트</a><button class="nav-toggle" type="button" aria-haspopup="true" aria-controls="navigation"><span></span><span></span><span></span>menu</button></div><h1 class="header__title">스크럼(Scrum) 기법</h1></div></header><div class="contents--container" role="main"><article class="article"><div class="article__meta"><time class="article__meta__time" datetime="2020-02-16T01:12:50.000Z"><span aria-label="posted"><span class="fas fa-calendar-day" aria-hidden="true"></span></span>2020-02-16 10:12:50</time><div class="article__meta__category"><span aria-label="category"><span class="fas fa-archive" aria-hidden="true"></span></span><a class="article__meta__category__item" href="/categories/%EA%B3%B5%EB%B6%80/">공부</a><a class="article__meta__category__item" href="/categories/%EA%B3%B5%EB%B6%80/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B3%B5%ED%95%99/">컴퓨터 공학</a><a class="article__meta__category__item" href="/categories/%EA%B3%B5%EB%B6%80/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B3%B5%ED%95%99/%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4-%EC%84%A4%EA%B3%84/">소프트웨어 설계</a><a class="article__meta__category__item" href="/categories/%EA%B3%B5%EB%B6%80/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B3%B5%ED%95%99/%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4-%EC%84%A4%EA%B3%84/%EC%9A%94%EA%B5%AC%EC%82%AC%ED%95%AD-%ED%99%95%EC%9D%B8/">요구사항 확인</a></div></div><div class="article__content"><p><a href="https://jin9173.github.io/2020/02/15/study/computer_science/software_design/2020-02-15_requirements_software_lifecycle/">소프트웨어 생명주기</a></p>
+<ul>
+<li><p>소프트웨어 생명주기: 개발단계, 단계별 주요활동, 활동의 결과를 산출물로 표현</p>
+</li>
+<li><p>소프트웨어 생명주기 모형</p>
+<ul>
+<li><p>폭포수 모형(고전적): 단계가 끝난 후 다음 단계 진행 (각 단계들은 병행하여 수행X)</p>
+<p>[타당성 검토 → 계획→ 요구분석→ 설계→ 구현(코딩)→ 시험(검사)→ 유지보수]</p>
+</li>
+<li><p>프로토타입 모형: 견본품을 바탕으로 최종 결과물 예측 (폭포수 모형의 요구분석 단계 보완)</p>
+<p>[요구수집→ 빠른 설계→ 프로토타입 구축→ 고객 평가→ 프로토타입 조정→ 구현]</p>
+</li>
+<li><p>나선형 모형(점진적): 위험 분석 기능 (폭포수모형과 프로토타입 모형 보완) [유지보수 과정X]</p>
+</li>
+<li><p>애자일 모형: 고객의 요구사항을 수용하며 스프린트(짧은 개발 주기) 반복 [일정 주기가 끝날때마다 테스트]</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="스크럼-Scrum-기법"><a href="#스크럼-Scrum-기법" class="headerlink" title="스크럼(Scrum) 기법"></a>스크럼(Scrum) 기법</h2><p>: 스크럼이란 팀이 중심이되어 개발의 효율성을 높인다는 의미</p>
+<ul>
+<li>팀원 스스로가 스크럼 팀을 구성</li>
+<li>팀원 스스로 해결</li>
+</ul>
+<br>
+
+<h3 id="스크럼-팀"><a href="#스크럼-팀" class="headerlink" title="스크럼 팀"></a>스크럼 팀</h3><h4 id="1-제품-책임자-PO-Project-Owner"><a href="#1-제품-책임자-PO-Project-Owner" class="headerlink" title="1. 제품 책임자(PO; Project Owner)"></a>1. 제품 책임자(PO; Project Owner)</h4><ul>
+<li>의뢰자나 사용자가 요구사항을 책임지고 의사 결정</li>
+<li>요구사항이 담긴 백로그(Backlog)를 작성하고 우선순위 지정 (팀원들 개입 불가능)</li>
+<li>제품에 대한 테스트를 수행하면서 주기적으로 요구사항의 우선순위 갱신</li>
+</ul>
+<h4 id="2-스크럼-마스터-SM-Scrum-Master"><a href="#2-스크럼-마스터-SM-Scrum-Master" class="headerlink" title="2. 스크럼 마스터(SM; Scrum Master)"></a>2. 스크럼 마스터(SM; Scrum Master)</h4><ul>
+<li>객관적인 시각에서 조언을 해주는 가이드 역할 수행 (팀원들 통제X)</li>
+<li>일일 스크럼 회의를 통해 진행 사항 점검</li>
+<li>개발 과정에서 발생된 장애요소를 공론화하여 처리</li>
+</ul>
+<h4 id="3-개발팀-DT-Development-Team"><a href="#3-개발팀-DT-Development-Team" class="headerlink" title="3. 개발팀(DT; Development Team)"></a>3. 개발팀(DT; Development Team)</h4><p>: 제품 책임자와 스크럼 마스터를 제외한 모든 팀원 (7~8명)</p>
+<br>
+
+<h3 id="스크럼-개발-프로세스"><a href="#스크럼-개발-프로세스" class="headerlink" title="스크럼 개발 프로세스"></a>스크럼 개발 프로세스</h3><p><img src="https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=http%3A%2F%2Fcfile21.uf.tistory.com%2Fimage%2F214EE04E58A2A65C155D51" alt=""></p>
+<h4 id="1-제품-백로그-Product-Backlog"><a href="#1-제품-백로그-Product-Backlog" class="headerlink" title="1. 제품 백로그(Product Backlog)"></a>1. 제품 백로그(Product Backlog)</h4><p>: 제품 개발에 필요한 모든 요구사항(User Story)을 우선순위에 따라 나열한 목록</p>
+<ul>
+<li>지속적으로 업데이트</li>
+<li>사용자 스토리를 기반으로 전체 일정 계획인 릴리즈 계획을 수립</li>
+</ul>
+<h4 id="2-스프린트-계획-회의-Sprint-Planning-Meeting"><a href="#2-스프린트-계획-회의-Sprint-Planning-Meeting" class="headerlink" title="2. 스프린트 계획 회의(Sprint Planning Meeting)"></a>2. 스프린트 계획 회의(Sprint Planning Meeting)</h4><p>: 제품 백로그 중 이번 스프린트에서 수행할 작업을 대상으로 단기 일정을 수립</p>
+<ul>
+<li>요구사항(User Story)을 테스크 작업단위로 분할한 후 개발자별로 수행할 작업 목록인 스프린트 백로그를 작성</li>
+</ul>
+<h4 id="3-스프린트-Sprint"><a href="#3-스프린트-Sprint" class="headerlink" title="3. 스프린트(Sprint)"></a>3. 스프린트(Sprint)</h4><p>: 2~4주 기간 내의 실제 개발작업 진행 과정</p>
+<ul>
+<li>테스크 당 작업 시간 추정 후 할당 (개발자가 원하는 테스크 직접 선별)</li>
+<li>할일(To Do), 진행중(In Progress), 완료(Done) 상태로 테스크 분류</li>
+</ul>
+<h4 id="4-일일-스크럼-회의-Daily-Scrum-Meeting"><a href="#4-일일-스크럼-회의-Daily-Scrum-Meeting" class="headerlink" title="4. 일일 스크럼 회의(Daily Scrum Meeting)"></a>4. 일일 스크럼 회의(Daily Scrum Meeting)</h4><p>: 매일 15분동안 서서 진행 상황 점검</p>
+<ul>
+<li>남은 작업시간은 소멸차트(Burn-down Chart)에 표시</li>
+<li>발견된 장애요소는 스크럼 마스터가 해결할 수 있도록 도와줌</li>
+</ul>
+<h4 id="5-스프린트-검토-회의-Sprint-Review"><a href="#5-스프린트-검토-회의-Sprint-Review" class="headerlink" title="5. 스프린트 검토 회의(Sprint Review)"></a>5. 스프린트 검토 회의(Sprint Review)</h4><p>: 사용자가 포함된 참석자 앞에서 한시간 내에 테스팅 수행</p>
+<ul>
+<li>제품 책임자는 개선할 사항에 대한 피드백을 정리한 후 다음 스프린트에 반영할 수 있도록 제품 백로그를 업데이트</li>
+</ul>
+<h4 id="6-스프린트-회고-Sprint-Retrospective"><a href="#6-스프린트-회고-Sprint-Retrospective" class="headerlink" title="6. 스프린트 회고(Sprint Retrospective)"></a>6. 스프린트 회고(Sprint Retrospective)</h4><p>: 해당 스프린트가 끝난 시점에서 수행하거나 일정 주기로 정해놓은 규칙을 잘 준수했는지, 개선할 점은 없는지 등을 확인하고 기록</p>
+</div><div class="article__tags"><div class="article__tags__title">tags:</div><a class="article__tag__item" href="/tags/%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4-%EC%83%9D%EB%AA%85%EC%A3%BC%EA%B8%B0/"><span class="fas fa-tag" aria-hidden="true"></span>소프트웨어 생명주기</a></div></article><div class="comment__container" role="region" aria-label="comments"></div></div><footer class="footer"><p class="credit">Powered by  <a href="https://hexo.io/" rel="external noreferrer" target="_blank">Hexo</a>. Theme by  <a href="https://github.com/mulder21c" rel="external noreferrer" target="_blank">Sejin Kim</a></p></footer><div class="nav" aria-hidden="true"><nav class="nav--container" id="navigation" aria-labelledby="nav__heading"><h2 class="nav__heading" id="nav__heading">Navigation</h2><hr class="nav__seperator"><ul class="menu-list">
+    <li class="menu-item" >
+      <a href="/" >
+        home
+      </a>
+    </li>
+    <li class="menu-item" >
+      <a href="/archives" >
+        archives
+      </a>
+    </li></ul><hr class="nav__seperator"><h3 class="nav__heading--sub">Categories</h3><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Setting/">Setting</a></li><li class="category-list-item"><a class="category-list-link current" href="/categories/%EA%B3%B5%EB%B6%80/">공부</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%EA%B3%B5%EB%B6%80/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EA%B3%B5%EB%B6%80/Server/">Server</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EA%B3%B5%EB%B6%80/%EB%94%94%EC%9E%90%EC%9D%B8-%ED%8C%A8%ED%84%B4/">디자인 패턴</a></li><li class="category-list-item"><a class="category-list-link current" href="/categories/%EA%B3%B5%EB%B6%80/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B3%B5%ED%95%99/">컴퓨터 공학</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link current" href="/categories/%EA%B3%B5%EB%B6%80/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B3%B5%ED%95%99/%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4-%EC%84%A4%EA%B3%84/">소프트웨어 설계</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link current" href="/categories/%EA%B3%B5%EB%B6%80/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B3%B5%ED%95%99/%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4-%EC%84%A4%EA%B3%84/%EC%9A%94%EA%B5%AC%EC%82%AC%ED%95%AD-%ED%99%95%EC%9D%B8/">요구사항 확인</a></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EB%8F%84%ED%81%90%EB%A8%BC%ED%8A%B8-%EB%B2%88%EC%97%AD/">도큐먼트 번역</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%EB%8F%84%ED%81%90%EB%A8%BC%ED%8A%B8-%EB%B2%88%EC%97%AD/django-Framework/">django Framework</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4/">문제풀이</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4/Python/">Python</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/">프로젝트</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EC%9E%A5%EA%B3%A0-%EB%B8%94%EB%A1%9C%EA%B7%B8/">장고 블로그</a></li></ul></li></ul></nav></div><script src="/js/webfontloader.js"></script><script>WebFont.load({
+  custom: {
+    families: ["Noto Sans KR", "Font Awesome"],
+    urls: ["/fonts/notosanskr/NotoSansKR.css", "/fonts/fontawesome/fontawesome.css"]
+  }
+});</script><script src="/js/script.js"></script></body></html>
