@@ -1,0 +1,100 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>변수 - 세진이의 개발노트</title><!-- Links--><link rel="canonical" href="https://jin9173.github.io/2020/02/17/study/java/2020-02-17_java_variable"><!-- preload--><!-- Icons--><!-- open graph--><meta name="description" content="1  2  3  4  5  6  7  8  9  10  11  12  13  14">
+<meta property="og:type" content="article">
+<meta property="og:title" content="변수">
+<meta property="og:url" content="https://jin9173.github.io/2020/02/17/study/java/2020-02-17_java_variable/">
+<meta property="og:site_name" content="세진이의 개발노트">
+<meta property="og:description" content="1  2  3  4  5  6  7  8  9  10  11  12  13  14">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-02-16T20:30:00.000Z">
+<meta property="article:modified_time" content="2020-03-04T20:49:46.374Z">
+<meta property="article:author" content="Sejin Kim">
+<meta property="article:tag" content="변수">
+<meta name="twitter:card" content="summary"><!-- verify website ownership--><!-- styles--><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/dracula.css"><!-- JSON LD for SEO--><script type="application/ld+json">{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "변수",
+  "alternativeHeadline": null,
+  "image": {
+    "@type": "imageObject",
+    "url": null,
+    "width": null,
+    "height": null
+  },
+  "genre": null,
+  "keywords": "변수",
+  "editor": {
+    "@type": "Person",
+    "name": "Sejin Kim"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Sejin Kim"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Sejin Kim"
+  },
+  "url": "https://jin9173.github.io/2020/02/17/study/java/2020-02-17_java_variable/",
+  "dateCreated": "2020-02-17",
+  "datePublished": "2020-02-17",
+  "articleBody": "1  2  3  4  5  6  7  8  9  10  11  12  13  14"
+}</script><!--scripts--><meta name="generator" content="Hexo 4.2.0"></head><body class="post"><header class="header hero"><div class="hero-wrapper"><div class="gnb"><a href="/">세진이의 개발노트</a><button class="nav-toggle" type="button" aria-haspopup="true" aria-controls="navigation"><span></span><span></span><span></span>menu</button></div><h1 class="header__title">변수</h1></div></header><div class="contents--container" role="main"><article class="article"><div class="article__meta"><time class="article__meta__time" datetime="2020-02-16T20:30:00.000Z"><span aria-label="posted"><span class="fas fa-calendar-day" aria-hidden="true"></span></span>2020-02-17 05:30:00</time><div class="article__meta__category"><span aria-label="category"><span class="fas fa-archive" aria-hidden="true"></span></span><a class="article__meta__category__item" href="/categories/%EA%B3%B5%EB%B6%80/">공부</a><a class="article__meta__category__item" href="/categories/%EA%B3%B5%EB%B6%80/Java/">Java</a></div></div><div class="article__content"><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Variables</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> age;</span><br><span class="line">        age = <span class="number">27</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> num = <span class="number">21</span>;</span><br><span class="line">        age = <span class="number">26</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// age = 22.6;</span></span><br><span class="line"></span><br><span class="line">        age = num;</span><br><span class="line">        age = age + <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        System.out.print(<span class="string">"Hello, I'm "</span>);</span><br><span class="line">        System.out.print(age);</span><br><span class="line">        System.out.print(<span class="string">"."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello, I&#39;m 22.</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="변수-선언"><a href="#변수-선언" class="headerlink" title="변수 선언"></a>변수 선언</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 앞에 자료형을 써주고, 뒤에 변수이름을 써줌</span></span><br><span class="line">type variableName;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a; <span class="comment">// 정수형을 담을 변수 a 선언</span></span><br><span class="line">String s; <span class="comment">// 문자열을 담을 변수 s 선언</span></span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="변수-이름-규칙"><a href="#변수-이름-규칙" class="headerlink" title="변수 이름 규칙"></a>변수 이름 규칙</h2><ol>
+<li>대소문자 구분</li>
+<li>숫자로 시작할 수 없음</li>
+<li>밑줄(<code>_</code>, 상수이름)과 달러 표시(<code>$</code>, 자동 생성되는 변수명) 이외의 특수문자는 사용불가</li>
+<li>예약어 사용불가 (e.g. <code>class</code>, <code>public</code>)</li>
+<li><span style="color: red">카멜 케이스 기법으로 작성하는 것을 추천</span> (e.g. <code>camelCase</code>)</li>
+</ol>
+<br>
+
+<h2 id="값-넣어주기"><a href="#값-넣어주기" class="headerlink" title="값 넣어주기"></a>값 넣어주기</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> age;</span><br><span class="line">age = <span class="number">27</span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> age = <span class="number">27</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> age = <span class="string">"Thirty"</span>; <span class="comment">// 오류발생</span></span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="변수-사용"><a href="#변수-사용" class="headerlink" title="변수 사용"></a>변수 사용</h2><p>변수에 값을 대입하거나 연산 가능</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> age = <span class="number">27</span>;</span><br><span class="line"><span class="keyword">int</span> num = <span class="number">13</span>;</span><br><span class="line"></span><br><span class="line">System.out.println(num + age); </span><br><span class="line"></span><br><span class="line">age = age + <span class="number">1</span>;</span><br><span class="line">System.out.println(num + age)</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="출력-메소드"><a href="#출력-메소드" class="headerlink" title="출력 메소드"></a>출력 메소드</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> age = <span class="number">27</span>;</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"Hello, I'm "</span>);</span><br><span class="line">System.out.println(age);</span><br><span class="line">System.out.println(<span class="string">"."</span>);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Hello, I&#39;m</span><br><span class="line">27</span><br><span class="line">.</span><br></pre></td></tr></table></figure>
+
+<p><code>println</code> 은 print와 line이 결합된 함수이다. 그렇기 때문에 저절로 줄바꿈이된다. </p>
+<p>줄바꿈을 원하지 않으면 <code>println</code> 대신 <code>print</code>를 써주면 된다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> age = <span class="number">27</span>;</span><br><span class="line"></span><br><span class="line">System.out.print(<span class="string">"Hello, I'm "</span>);</span><br><span class="line">System.out.print(age);</span><br><span class="line">System.out.print(<span class="string">"."</span>);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello, I&#39;m 27.</span><br></pre></td></tr></table></figure>
+
+
+
+</div><div class="article__tags"><div class="article__tags__title">tags:</div><a class="article__tag__item" href="/tags/%EB%B3%80%EC%88%98/"><span class="fas fa-tag" aria-hidden="true"></span>변수</a></div></article><div class="comment__container" role="region" aria-label="comments"></div></div><footer class="footer"><p class="credit">Powered by  <a href="https://hexo.io/" rel="external noreferrer" target="_blank">Hexo</a>. Theme by  <a href="https://github.com/mulder21c" rel="external noreferrer" target="_blank">Sejin Kim</a></p></footer><div class="nav" aria-hidden="true"><nav class="nav--container" id="navigation" aria-labelledby="nav__heading"><h2 class="nav__heading" id="nav__heading">Navigation</h2><hr class="nav__seperator"><ul class="menu-list">
+    <li class="menu-item" >
+      <a href="/" >
+        home
+      </a>
+    </li>
+    <li class="menu-item" >
+      <a href="/archives" >
+        archives
+      </a>
+    </li></ul><hr class="nav__seperator"><h3 class="nav__heading--sub">Categories</h3><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Setting/">Setting</a></li><li class="category-list-item"><a class="category-list-link current" href="/categories/%EA%B3%B5%EB%B6%80/">공부</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link current" href="/categories/%EA%B3%B5%EB%B6%80/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EA%B3%B5%EB%B6%80/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EA%B3%B5%EB%B6%80/Server/">Server</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EA%B3%B5%EB%B6%80/%EB%94%94%EC%9E%90%EC%9D%B8-%ED%8C%A8%ED%84%B4/">디자인 패턴</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EA%B3%B5%EB%B6%80/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B3%B5%ED%95%99/">컴퓨터 공학</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%EA%B3%B5%EB%B6%80/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B3%B5%ED%95%99/%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4-%EC%84%A4%EA%B3%84/">소프트웨어 설계</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%EA%B3%B5%EB%B6%80/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B3%B5%ED%95%99/%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4-%EC%84%A4%EA%B3%84/%EC%9A%94%EA%B5%AC%EC%82%AC%ED%95%AD-%ED%99%95%EC%9D%B8/">요구사항 확인</a></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EB%8F%84%ED%81%90%EB%A8%BC%ED%8A%B8-%EB%B2%88%EC%97%AD/">도큐먼트 번역</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%EB%8F%84%ED%81%90%EB%A8%BC%ED%8A%B8-%EB%B2%88%EC%97%AD/django-Framework/">django Framework</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4/">문제풀이</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4/Python/">Python</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/">프로젝트</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EC%9E%A5%EA%B3%A0-%EB%B8%94%EB%A1%9C%EA%B7%B8/">장고 블로그</a></li></ul></li></ul></nav></div><script src="/js/webfontloader.js"></script><script>WebFont.load({
+  custom: {
+    families: ["Noto Sans KR", "Font Awesome"],
+    urls: ["/fonts/notosanskr/NotoSansKR.css", "/fonts/fontawesome/fontawesome.css"]
+  }
+});</script><script src="/js/script.js"></script></body></html>
